@@ -1,0 +1,52 @@
+
+nBack.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+letterbg
+  rotate: false
+  xy: 1, 211
+  size: 822, 666
+  orig: 822, 666
+  offset: 0, 0
+  index: -1
+mainmenu
+  rotate: false
+  xy: 1, 6
+  size: 550, 203
+  orig: 550, 203
+  offset: 0, 0
+  index: -1
+right
+  rotate: false
+  xy: 553, 1
+  size: 377, 208
+  orig: 377, 208
+  offset: 0, 0
+  index: -1
+
+nBack2.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+nBackButton
+  rotate: false
+  xy: 1, 211
+  size: 550, 203
+  orig: 550, 203
+  offset: 0, 0
+  index: -1
+wrong
+  rotate: false
+  xy: 1, 1
+  size: 377, 208
+  orig: 377, 208
+  offset: 0, 0
+  index: -1
+retry
+  rotate: false
+  xy: 553, 211
+  size: 377, 203
+  orig: 377, 203
+  offset: 0, 0
+  index: -1
