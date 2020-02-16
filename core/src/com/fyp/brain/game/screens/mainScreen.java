@@ -22,7 +22,7 @@ public class mainScreen implements Screen {
     private final Stage stage;
     private SpriteBatch batch;
     private Texture img;
-    private TextButton nback;
+    private TextButton nback,stroop;
     private static final int FRAME_COLS = 7, FRAME_ROWS = 2;
     private Texture rainSheet;
     private float stateTime;
@@ -69,6 +69,26 @@ public class mainScreen implements Screen {
         });
 
         stage.addActor(nback);
+
+        TextButton.TextButtonStyle stroopStyle = new TextButton.TextButtonStyle();
+        stroopStyle.up = skin.getDrawable("nBackButton");
+        stroopStyle.font = font;
+
+        stroop = new TextButton("",nbackStyle);
+        stroop.setPosition(Gdx.graphics.getWidth()/2 - 275  ,Gdx.graphics.getHeight()/2 - 50);
+
+        stroop.addListener(new ClickListener() {
+            @Override
+            public void clicked (InputEvent event, float x, float y){
+
+                game.setScreen(new StroopScreen(game));
+
+
+            }
+
+        });
+
+        stage.addActor(stroop);
 
 
 

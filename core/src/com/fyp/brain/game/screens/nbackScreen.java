@@ -2,11 +2,11 @@ package com.fyp.brain.game.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.graphics.g2d.freetype.*;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
@@ -16,11 +16,10 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.fyp.brain.game.MyGdxGame;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
-import com.fyp.brain.game.games.Nback;
 import com.fyp.brain.game.player.Player;
 
+import java.util.Random;
 
-import static com.badlogic.gdx.graphics.GL20.GL_COLOR_BUFFER_BIT;
 
 public class nbackScreen implements Screen {
 
@@ -73,7 +72,7 @@ public class nbackScreen implements Screen {
         buttonAtlas = new TextureAtlas("nBack.pack");
         skin.addRegions(buttonAtlas);
 
-        // right button
+
 
         TextButtonStyle  rightStyle = new TextButtonStyle ();
         rightStyle.up = skin.getDrawable("right");
@@ -216,6 +215,7 @@ public class nbackScreen implements Screen {
         stage.getBatch().begin();
         font.draw(stage.getBatch(), Integer.toString(player.getScore()), 300,1875);
         font.draw(stage.getBatch(), "N = " + N, Gdx.graphics.getWidth()/2 - 60,Gdx.graphics.getHeight()/2 - 220.0f);
+        //font.draw(stage.getBatch(), background.toString(), Gdx.graphics.getWidth()/2 ,Gdx.graphics.getHeight()/2);
         stage.getBatch().end();
 
 
@@ -292,6 +292,18 @@ public class nbackScreen implements Screen {
 
     @Override
     public void dispose() {
-
+        buttonAtlas.dispose();
+        font.dispose();
+        skin.dispose();
+        buttonAtlas.dispose();
+        background.dispose();
+        heart.dispose();
+        heart2.dispose();
+        heart3.dispose();
+        dheart.dispose();
+        dheart2.dispose();
+        dheart3.dispose();
+        stage.dispose();
     }
+
 }

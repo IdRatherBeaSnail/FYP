@@ -5,23 +5,37 @@ filter: Nearest,Nearest
 repeat: none
 letterbg
   rotate: false
-  xy: 1, 211
+  xy: 1, 348
   size: 822, 666
   orig: 822, 666
   offset: 0, 0
   index: -1
 mainmenu
   rotate: false
-  xy: 1, 6
+  xy: 1, 143
   size: 550, 203
   orig: 550, 203
   offset: 0, 0
   index: -1
 right
   rotate: false
-  xy: 553, 1
+  xy: 553, 138
   size: 377, 208
   orig: 377, 208
+  offset: 0, 0
+  index: -1
+blue
+  rotate: false
+  xy: 1, 6
+  size: 365, 135
+  orig: 365, 135
+  offset: 0, 0
+  index: -1
+green
+  rotate: false
+  xy: 368, 1
+  size: 365, 135
+  orig: 365, 135
   offset: 0, 0
   index: -1
 
@@ -31,22 +45,50 @@ filter: Nearest,Nearest
 repeat: none
 nBackButton
   rotate: false
-  xy: 1, 211
+  xy: 1, 622
   size: 550, 203
   orig: 550, 203
   offset: 0, 0
   index: -1
 wrong
   rotate: false
-  xy: 1, 1
+  xy: 1, 412
   size: 377, 208
   orig: 377, 208
   offset: 0, 0
   index: -1
 retry
   rotate: false
-  xy: 553, 211
+  xy: 553, 622
   size: 377, 203
   orig: 377, 203
+  offset: 0, 0
+  index: -1
+orange
+  rotate: false
+  xy: 1, 275
+  size: 365, 135
+  orig: 365, 135
+  offset: 0, 0
+  index: -1
+red
+  rotate: false
+  xy: 380, 485
+  size: 365, 135
+  orig: 365, 135
+  offset: 0, 0
+  index: -1
+white
+  rotate: false
+  xy: 1, 138
+  size: 365, 135
+  orig: 365, 135
+  offset: 0, 0
+  index: -1
+yellow
+  rotate: false
+  xy: 1, 1
+  size: 365, 135
+  orig: 365, 135
   offset: 0, 0
   index: -1

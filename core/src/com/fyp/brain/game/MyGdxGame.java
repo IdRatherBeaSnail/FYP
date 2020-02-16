@@ -12,30 +12,23 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.fyp.brain.game.screens.mainScreen;
 import com.fyp.brain.game.screens.nbackScreen;
-import com.fyp.brain.game.screens.test;
+
 
 public class MyGdxGame extends Game {
-	SpriteBatch batch;
-	Texture img,buttons;
-	private Music theme, theme2;
-	private static final int FRAME_COLS = 7, FRAME_ROWS = 2;
-	private Texture rainSheet;
-	float stateTime;
-	Animation<TextureRegion> rainAnimation;
+	private SpriteBatch batch;
+	private Music theme;
 	
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
 		this.setScreen(new mainScreen(this));
 		theme = Gdx.audio.newMusic(Gdx.files.internal("mainTheme.mp3"));
-		theme2 = Gdx.audio.newMusic(Gdx.files.internal("rain.mp3"));
+
 		theme.setVolume(0.5f);
 		theme.play();
 		theme.setLooping(true);
 
-		theme2.setVolume(0.10f);
-		theme2.play();
-		theme2.setLooping(true);
+
 
 
 
@@ -65,7 +58,6 @@ public class MyGdxGame extends Game {
 	@Override
 	public void dispose () {
 		batch.dispose();
-		img.dispose();
-		rainSheet.dispose();
+
 	}
 }
