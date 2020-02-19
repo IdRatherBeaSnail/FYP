@@ -10,23 +10,16 @@ letterbg
   orig: 822, 666
   offset: 0, 0
   index: -1
-mainmenu
-  rotate: false
-  xy: 1, 143
-  size: 550, 203
-  orig: 550, 203
-  offset: 0, 0
-  index: -1
 right
   rotate: false
-  xy: 553, 138
+  xy: 1, 138
   size: 377, 208
   orig: 377, 208
   offset: 0, 0
   index: -1
 blue
   rotate: false
-  xy: 1, 6
+  xy: 1, 1
   size: 365, 135
   orig: 365, 135
   offset: 0, 0
@@ -38,57 +31,134 @@ green
   orig: 365, 135
   offset: 0, 0
   index: -1
+wrong
+  rotate: false
+  xy: 380, 138
+  size: 377, 208
+  orig: 377, 208
+  offset: 0, 0
+  index: -1
+0
+  rotate: false
+  xy: 759, 191
+  size: 246, 155
+  orig: 246, 155
+  offset: 0, 0
+  index: -1
+2
+  rotate: false
+  xy: 759, 34
+  size: 246, 155
+  orig: 246, 155
+  offset: 0, 0
+  index: -1
 
 nBack2.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
-nBackButton
+mainmenu
   rotate: false
-  xy: 1, 622
+  xy: 1, 774
   size: 550, 203
   orig: 550, 203
   offset: 0, 0
   index: -1
-wrong
+nBackButton
   rotate: false
-  xy: 1, 412
-  size: 377, 208
-  orig: 377, 208
+  xy: 1, 569
+  size: 550, 203
+  orig: 550, 203
   offset: 0, 0
   index: -1
 retry
   rotate: false
-  xy: 553, 622
+  xy: 553, 774
   size: 377, 203
   orig: 377, 203
   offset: 0, 0
   index: -1
 orange
   rotate: false
-  xy: 1, 275
+  xy: 1, 432
   size: 365, 135
   orig: 365, 135
   offset: 0, 0
   index: -1
 red
   rotate: false
-  xy: 380, 485
+  xy: 553, 637
   size: 365, 135
   orig: 365, 135
   offset: 0, 0
   index: -1
 white
   rotate: false
-  xy: 1, 138
+  xy: 1, 295
   size: 365, 135
   orig: 365, 135
   offset: 0, 0
   index: -1
 yellow
   rotate: false
-  xy: 1, 1
+  xy: 1, 158
   size: 365, 135
   orig: 365, 135
+  offset: 0, 0
+  index: -1
+3
+  rotate: false
+  xy: 1, 1
+  size: 246, 155
+  orig: 246, 155
+  offset: 0, 0
+  index: -1
+4
+  rotate: false
+  xy: 368, 412
+  size: 246, 155
+  orig: 246, 155
+  offset: 0, 0
+  index: -1
+5
+  rotate: false
+  xy: 368, 255
+  size: 246, 155
+  orig: 246, 155
+  offset: 0, 0
+  index: -1
+6
+  rotate: false
+  xy: 368, 98
+  size: 246, 155
+  orig: 246, 155
+  offset: 0, 0
+  index: -1
+7
+  rotate: false
+  xy: 616, 480
+  size: 246, 155
+  orig: 246, 155
+  offset: 0, 0
+  index: -1
+8
+  rotate: false
+  xy: 616, 323
+  size: 246, 155
+  orig: 246, 155
+  offset: 0, 0
+  index: -1
+9
+  rotate: false
+  xy: 616, 166
+  size: 246, 155
+  orig: 246, 155
+  offset: 0, 0
+  index: -1
+one
+  rotate: false
+  xy: 616, 9
+  size: 246, 155
+  orig: 246, 155
   offset: 0, 0
   index: -1

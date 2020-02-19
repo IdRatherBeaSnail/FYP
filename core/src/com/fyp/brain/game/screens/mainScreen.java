@@ -22,7 +22,7 @@ public class mainScreen implements Screen {
     private final Stage stage;
     private SpriteBatch batch;
     private Texture img;
-    private TextButton nback,stroop;
+    private TextButton nback,stroop,running;
     private static final int FRAME_COLS = 7, FRAME_ROWS = 2;
     private Texture rainSheet;
     private float stateTime;
@@ -89,6 +89,26 @@ public class mainScreen implements Screen {
         });
 
         stage.addActor(stroop);
+
+        TextButton.TextButtonStyle runningStyle = new TextButton.TextButtonStyle();
+        runningStyle.up = skin.getDrawable("nBackButton");
+        runningStyle.font = font;
+
+        running = new TextButton("",runningStyle);
+        running.setPosition(Gdx.graphics.getWidth()/2 - 275  ,Gdx.graphics.getHeight()/2 - 250);
+
+        running.addListener(new ClickListener() {
+            @Override
+            public void clicked (InputEvent event, float x, float y){
+
+                game.setScreen(new RunningSpanScreen(game));
+
+
+            }
+
+        });
+
+        stage.addActor(running);
 
 
 

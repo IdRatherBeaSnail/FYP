@@ -300,13 +300,11 @@ public class StroopScreen implements Screen {
         stage.addActor(menu);
 
         Label tims = new Label("Time", new Label.LabelStyle(font, Color.WHITE));
-        //clock.setSize(20.0f,10.0f);
         tims.setPosition(490,1845);
         tims.setFontScale(0.9f);
         stage.addActor(tims);
 
         clock = new Label("", new Label.LabelStyle(font, Color.WHITE));
-        //clock.setSize(20.0f,10.0f);
         clock.setPosition(505,1805);
         clock.setFontScale(0.8f);
         stage.addActor(clock);
@@ -347,7 +345,6 @@ public class StroopScreen implements Screen {
         stage.getBatch().begin();
         font2.draw(stage.getBatch(), "Score " + player.getScore(), 100,1875);
         font.draw(stage.getBatch(), colourArray[counter], Gdx.graphics.getWidth()/2 - 100.0f ,Gdx.graphics.getHeight()/2 + 250.0f);
-        //font.draw(stage.getBatch(), background.toString(), Gdx.graphics.getWidth()/2 ,Gdx.graphics.getHeight()/2);
         stage.getBatch().end();
 
         if (player.getLife() == 3){
