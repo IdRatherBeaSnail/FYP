@@ -101,7 +101,7 @@ public class mainScreen implements Screen {
             @Override
             public void clicked (InputEvent event, float x, float y){
 
-                game.setScreen(new RunningSpanScreen(game));
+                game.setScreen(new BackwardSpanScreen(game));
 
 
             }
@@ -169,6 +169,7 @@ public class mainScreen implements Screen {
         batch.dispose();
         img.dispose();
         rainSheet.dispose();
+
     }
 }
 

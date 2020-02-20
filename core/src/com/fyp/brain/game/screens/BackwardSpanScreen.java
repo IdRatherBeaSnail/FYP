@@ -12,18 +12,16 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
-import com.badlogic.gdx.scenes.scene2d.ui.TextButton.*;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.fyp.brain.game.MyGdxGame;
 import com.fyp.brain.game.player.Player;
 
-
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
-public class RunningSpanScreen implements Screen {
-
+public class BackwardSpanScreen implements Screen {
     private ArrayList<Integer> display,answer;
     private int counter;
     private float timer,deltaTime;
@@ -39,8 +37,8 @@ public class RunningSpanScreen implements Screen {
     private Label label;
     private int buttonNum;
 
-    public RunningSpanScreen (MyGdxGame game){
 
+    public BackwardSpanScreen (MyGdxGame game){
         display = new ArrayList<>();
         answer = new ArrayList<>();
 
@@ -68,10 +66,8 @@ public class RunningSpanScreen implements Screen {
 
         stage = new Stage(new ScreenViewport());
     }
-
     @Override
     public void show() {
-
         stage.clear();
         Gdx.input.setInputProcessor(stage);
         skin = new Skin();
@@ -79,7 +75,7 @@ public class RunningSpanScreen implements Screen {
 
         skin.addRegions(buttonAtlas);
 
-        TextButtonStyle oneStyle = new TextButton.TextButtonStyle();
+        TextButton.TextButtonStyle oneStyle = new TextButton.TextButtonStyle();
         oneStyle.font = font;
         oneStyle.up = skin.getDrawable("one");
         oneStyle.disabled = skin.getDrawable("oneD");
@@ -91,14 +87,14 @@ public class RunningSpanScreen implements Screen {
             @Override
             public void clicked (InputEvent event, float x, float y){
                 if(!one.isDisabled()){
-                buttonNum = 1;
-                answer.add(buttonNum);
-            }
+                    buttonNum = 1;
+                    answer.add(buttonNum);
+                }
             }
 
         });
 
-        TextButtonStyle twoStyle = new TextButton.TextButtonStyle();
+        TextButton.TextButtonStyle twoStyle = new TextButton.TextButtonStyle();
         twoStyle.font = font;
         twoStyle.up = skin.getDrawable("2");
         twoStyle.disabled = skin.getDrawable("2D");
@@ -110,14 +106,14 @@ public class RunningSpanScreen implements Screen {
             @Override
             public void clicked (InputEvent event, float x, float y){
                 if(!two.isDisabled()){
-                buttonNum = 2;
-                answer.add(buttonNum);
-            }
+                    buttonNum = 2;
+                    answer.add(buttonNum);
+                }
             }
 
         });
 
-        TextButtonStyle threeStyle = new TextButton.TextButtonStyle();
+        TextButton.TextButtonStyle threeStyle = new TextButton.TextButtonStyle();
         threeStyle.font = font;
         threeStyle.up = skin.getDrawable("3");
         threeStyle.disabled = skin.getDrawable("3D");
@@ -129,14 +125,14 @@ public class RunningSpanScreen implements Screen {
             @Override
             public void clicked (InputEvent event, float x, float y){
                 if(!three.isDisabled()){
-                buttonNum = 3;
-                answer.add(buttonNum);
-            }
+                    buttonNum = 3;
+                    answer.add(buttonNum);
+                }
             }
 
         });
 
-        TextButtonStyle fourStyle = new TextButton.TextButtonStyle();
+        TextButton.TextButtonStyle fourStyle = new TextButton.TextButtonStyle();
         fourStyle.font = font;
         fourStyle.up = skin.getDrawable("4");
         fourStyle.disabled = skin.getDrawable("4D");
@@ -148,14 +144,14 @@ public class RunningSpanScreen implements Screen {
             @Override
             public void clicked (InputEvent event, float x, float y){
                 if(!four.isDisabled()){
-                buttonNum = 4;
-                answer.add(buttonNum);
-            }
+                    buttonNum = 4;
+                    answer.add(buttonNum);
+                }
             }
 
         });
 
-        TextButtonStyle fiveStyle = new TextButton.TextButtonStyle();
+        TextButton.TextButtonStyle fiveStyle = new TextButton.TextButtonStyle();
         fiveStyle.font = font;
         fiveStyle.up = skin.getDrawable("5");
         fiveStyle.disabled = skin.getDrawable("5D");
@@ -167,14 +163,14 @@ public class RunningSpanScreen implements Screen {
             @Override
             public void clicked (InputEvent event, float x, float y){
                 if(!five.isDisabled()){
-                buttonNum = 5;
-                answer.add(buttonNum);
-            }
+                    buttonNum = 5;
+                    answer.add(buttonNum);
+                }
             }
 
         });
 
-        TextButtonStyle sixStyle = new TextButton.TextButtonStyle();
+        TextButton.TextButtonStyle sixStyle = new TextButton.TextButtonStyle();
         sixStyle.font = font;
         sixStyle.up = skin.getDrawable("6");
         sixStyle.disabled = skin.getDrawable("6D");
@@ -186,14 +182,14 @@ public class RunningSpanScreen implements Screen {
             @Override
             public void clicked (InputEvent event, float x, float y){
                 if(!six.isDisabled()){
-                buttonNum = 6;
-                answer.add(buttonNum);
-            }
+                    buttonNum = 6;
+                    answer.add(buttonNum);
+                }
             }
 
         });
 
-        TextButtonStyle sevenStyle = new TextButton.TextButtonStyle();
+        TextButton.TextButtonStyle sevenStyle = new TextButton.TextButtonStyle();
         sevenStyle.font = font;
         sevenStyle.up = skin.getDrawable("7");
         sevenStyle.disabled = skin.getDrawable("7D");
@@ -205,14 +201,14 @@ public class RunningSpanScreen implements Screen {
             @Override
             public void clicked (InputEvent event, float x, float y){
                 if(!seven.isDisabled()){
-                buttonNum = 7;
-                answer.add(buttonNum);
-            }
+                    buttonNum = 7;
+                    answer.add(buttonNum);
+                }
             }
 
         });
 
-        TextButtonStyle eightStyle = new TextButton.TextButtonStyle();
+        TextButton.TextButtonStyle eightStyle = new TextButton.TextButtonStyle();
         eightStyle.font = font;
         eightStyle.up = skin.getDrawable("8");
         eightStyle.disabled = skin.getDrawable("8D");
@@ -224,14 +220,14 @@ public class RunningSpanScreen implements Screen {
             @Override
             public void clicked (InputEvent event, float x, float y){
                 if(!eight.isDisabled()){
-                buttonNum = 8;
-                answer.add(buttonNum);
-            }
+                    buttonNum = 8;
+                    answer.add(buttonNum);
+                }
             }
 
         });
 
-        TextButtonStyle nineStyle = new TextButton.TextButtonStyle();
+        TextButton.TextButtonStyle nineStyle = new TextButton.TextButtonStyle();
         nineStyle.font = font;
         nineStyle.up = skin.getDrawable("9");
         nineStyle.disabled = skin.getDrawable("9D");
@@ -243,14 +239,14 @@ public class RunningSpanScreen implements Screen {
             @Override
             public void clicked (InputEvent event, float x, float y){
                 if(!nine.isDisabled()){
-                buttonNum = 9;
-                answer.add(buttonNum);
-            }
+                    buttonNum = 9;
+                    answer.add(buttonNum);
+                }
             }
 
         });
 
-        TextButtonStyle zeroStyle = new TextButton.TextButtonStyle();
+        TextButton.TextButtonStyle zeroStyle = new TextButton.TextButtonStyle();
         zeroStyle.font = font;
         zeroStyle.up = skin.getDrawable("0");
         zeroStyle.disabled = skin.getDrawable("0D");
@@ -262,9 +258,9 @@ public class RunningSpanScreen implements Screen {
             @Override
             public void clicked (InputEvent event, float x, float y){
                 if(!zero.isDisabled()){
-                buttonNum = 0;
-                answer.add(buttonNum);
-            }
+                    buttonNum = 0;
+                    answer.add(buttonNum);
+                }
             }
 
         });
@@ -286,7 +282,7 @@ public class RunningSpanScreen implements Screen {
         label.setFontScale(1.2f);
         stage.addActor(label);
 
-        TextButtonStyle  retryStyle = new TextButtonStyle ();
+        TextButton.TextButtonStyle retryStyle = new TextButton.TextButtonStyle();
         retryStyle.up = skin.getDrawable("retry");
         retryStyle.font = font;
 
@@ -312,7 +308,7 @@ public class RunningSpanScreen implements Screen {
         stage.addActor(retry);
 
 
-        TextButtonStyle  menuStyle = new TextButtonStyle ();
+        TextButton.TextButtonStyle menuStyle = new TextButton.TextButtonStyle();
         menuStyle.up = skin.getDrawable("mainmenu");
         menuStyle.font = font;
 
@@ -330,6 +326,7 @@ public class RunningSpanScreen implements Screen {
         });
 
         stage.addActor(menu);
+
 
     }
 
@@ -371,10 +368,9 @@ public class RunningSpanScreen implements Screen {
             zero.setDisabled(false);
         }
 
-
-
-
-        if (display.equals(answer) && !answer.isEmpty() && display.size() == answer.size()){
+        if (display.size() == answer.size()){
+            Collections.reverse(display);
+            if (display.equals(answer) && !answer.isEmpty()){
                 counter++;
                 player.setScore(1);
                 chain = "";
@@ -390,8 +386,7 @@ public class RunningSpanScreen implements Screen {
 
                 }
 
-
-        } else if (!display.equals(answer) && !answer.isEmpty() && display.size() == answer.size()){
+            }   else if (!display.equals(answer) && !answer.isEmpty()){
                 counter++;
                 player.loseLife(3);
                 chain = "";
@@ -403,13 +398,8 @@ public class RunningSpanScreen implements Screen {
                     label.setText(chain);
                     label.setVisible(true);
                 }
-
+             }
         }
-
-
-
-
-
 
         stage.getBatch().begin();
         font.draw(stage.getBatch(), "Score " + player.getScore(), 100,1875);
@@ -466,7 +456,6 @@ public class RunningSpanScreen implements Screen {
 
         stage.draw();
         stage.act();
-
     }
 
     @Override
