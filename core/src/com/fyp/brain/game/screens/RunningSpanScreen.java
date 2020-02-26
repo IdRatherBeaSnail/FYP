@@ -343,7 +343,7 @@ public class RunningSpanScreen implements Screen {
         retry.setVisible(false);
 
 
-        // create texture for deactivated button
+
         deltaTime = Gdx.graphics.getDeltaTime();
         if(timer > 0){
             timer = timer - deltaTime;
