@@ -101,7 +101,7 @@ public class mainScreen implements Screen {
             @Override
             public void clicked (InputEvent event, float x, float y){
 
-                game.setScreen(new BackwardSpanScreen(game));
+                game.setScreen(new CorsiBlockScreen(game));
 
 
             }

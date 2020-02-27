@@ -480,7 +480,10 @@ public class BackwardSpanScreen implements Screen {
 
     @Override
     public void dispose() {
-
+        stage.dispose();
+        buttonAtlas.dispose();
+        font.dispose();
+        skin.dispose();
     }
     private int randomInt(){
         Random rand = new Random();
