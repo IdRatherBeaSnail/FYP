@@ -111,8 +111,7 @@ public class CorsiBlockScreen implements Screen {
         });
 
 
-        oneStyle.font = font;
-        oneStyle.up = skin.getDrawable("corsiOff");
+
 
         two = new TextButton("",oneStyle);
         two.setPosition(Gdx.graphics.getWidth()/2  - 215.0f,Gdx.graphics.getHeight()/2 + 280.0f);

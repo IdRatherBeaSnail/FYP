@@ -41,7 +41,6 @@ public class BackwardSpanScreen implements Screen {
     public BackwardSpanScreen (MyGdxGame game){
         display = new ArrayList<>();
         answer = new ArrayList<>();
-
         display.add(randomInt());
         counter = 0;
         deltaTime = 0;

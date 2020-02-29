@@ -3,42 +3,49 @@ nBack.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
+symbright
+  rotate: false
+  xy: 1, 847
+  size: 74, 74
+  orig: 74, 74
+  offset: 0, 0
+  index: -1
+symbwrong
+  rotate: false
+  xy: 77, 847
+  size: 74, 74
+  orig: 74, 74
+  offset: 0, 0
+  index: -1
 blue
   rotate: false
-  xy: 1, 806
+  xy: 153, 786
   size: 365, 135
   orig: 365, 135
   offset: 0, 0
   index: -1
 green
   rotate: false
-  xy: 368, 806
+  xy: 520, 786
   size: 365, 135
   orig: 365, 135
   offset: 0, 0
   index: -1
-0
-  rotate: false
-  xy: 735, 786
-  size: 246, 155
-  orig: 246, 155
-  offset: 0, 0
-  index: -1
 orange
   rotate: false
-  xy: 1, 669
+  xy: 1, 649
   size: 365, 135
   orig: 365, 135
   offset: 0, 0
   index: -1
 red
   rotate: false
-  xy: 368, 669
+  xy: 368, 649
   size: 365, 135
   orig: 365, 135
   offset: 0, 0
   index: -1
-0D
+0
   rotate: false
   xy: 735, 629
   size: 246, 155
@@ -47,103 +54,103 @@ red
   index: -1
 white
   rotate: false
-  xy: 1, 532
+  xy: 1, 512
   size: 365, 135
   orig: 365, 135
   offset: 0, 0
   index: -1
 yellow
   rotate: false
-  xy: 368, 532
+  xy: 368, 512
   size: 365, 135
   orig: 365, 135
   offset: 0, 0
   index: -1
-2
+0D
   rotate: false
   xy: 735, 472
   size: 246, 155
   orig: 246, 155
   offset: 0, 0
   index: -1
+2
+  rotate: false
+  xy: 1, 355
+  size: 246, 155
+  orig: 246, 155
+  offset: 0, 0
+  index: -1
 2D
   rotate: false
-  xy: 1, 375
+  xy: 249, 355
   size: 246, 155
   orig: 246, 155
   offset: 0, 0
   index: -1
 3
   rotate: false
-  xy: 249, 375
+  xy: 497, 315
   size: 246, 155
   orig: 246, 155
   offset: 0, 0
   index: -1
 3D
   rotate: false
-  xy: 497, 315
+  xy: 745, 315
   size: 246, 155
   orig: 246, 155
   offset: 0, 0
   index: -1
 4
   rotate: false
-  xy: 745, 315
+  xy: 1, 198
   size: 246, 155
   orig: 246, 155
   offset: 0, 0
   index: -1
 4D
   rotate: false
-  xy: 1, 218
+  xy: 249, 198
   size: 246, 155
   orig: 246, 155
   offset: 0, 0
   index: -1
 5
   rotate: false
-  xy: 249, 218
+  xy: 497, 158
   size: 246, 155
   orig: 246, 155
   offset: 0, 0
   index: -1
 5D
   rotate: false
-  xy: 497, 158
+  xy: 745, 158
   size: 246, 155
   orig: 246, 155
   offset: 0, 0
   index: -1
 6
   rotate: false
-  xy: 745, 158
+  xy: 1, 41
   size: 246, 155
   orig: 246, 155
   offset: 0, 0
   index: -1
 6D
   rotate: false
-  xy: 1, 61
+  xy: 249, 41
   size: 246, 155
   orig: 246, 155
   offset: 0, 0
   index: -1
 7
   rotate: false
-  xy: 249, 61
-  size: 246, 155
-  orig: 246, 155
-  offset: 0, 0
-  index: -1
-7D
-  rotate: false
   xy: 497, 1
   size: 246, 155
   orig: 246, 155
   offset: 0, 0
   index: -1
-8
+7D
   rotate: false
   xy: 745, 1
   size: 246, 155
@@ -155,32 +162,109 @@ nBack2.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
-letterbg
+8
   rotate: false
-  xy: 1, 234
-  size: 822, 666
-  orig: 822, 666
+  xy: 1, 849
+  size: 246, 155
+  orig: 246, 155
   offset: 0, 0
   index: -1
-corsiOff
+8D
   rotate: false
-  xy: 1, 1
+  xy: 249, 849
+  size: 246, 155
+  orig: 246, 155
+  offset: 0, 0
+  index: -1
+9
+  rotate: false
+  xy: 497, 849
+  size: 246, 155
+  orig: 246, 155
+  offset: 0, 0
+  index: -1
+9D
+  rotate: false
+  xy: 745, 849
+  size: 246, 155
+  orig: 246, 155
+  offset: 0, 0
+  index: -1
+one
+  rotate: false
+  xy: 1, 692
+  size: 246, 155
+  orig: 246, 155
+  offset: 0, 0
+  index: -1
+oneD
+  rotate: false
+  xy: 249, 692
+  size: 246, 155
+  orig: 246, 155
+  offset: 0, 0
+  index: -1
+retry
+  rotate: false
+  xy: 497, 644
+  size: 377, 203
+  orig: 377, 203
+  offset: 0, 0
+  index: -1
+right
+  rotate: false
+  xy: 1, 482
+  size: 377, 208
+  orig: 377, 208
+  offset: 0, 0
+  index: -1
+mainmenu
+  rotate: false
+  xy: 380, 439
+  size: 550, 203
+  orig: 550, 203
+  offset: 0, 0
+  index: -1
+wrong
+  rotate: false
+  xy: 1, 272
+  size: 377, 208
+  orig: 377, 208
+  offset: 0, 0
+  index: -1
+nBackButton
+  rotate: false
+  xy: 380, 234
+  size: 550, 203
+  orig: 550, 203
+  offset: 0, 0
+  index: -1
+circle
+  rotate: false
+  xy: 1, 39
   size: 227, 231
   orig: 227, 231
   offset: 0, 0
   index: -1
-corsiOn
+corsiOff
   rotate: false
   xy: 230, 1
   size: 227, 231
   orig: 227, 231
   offset: 0, 0
   index: -1
-mainmenu
+corsiOn
   rotate: false
-  xy: 459, 29
-  size: 550, 203
-  orig: 550, 203
+  xy: 459, 1
+  size: 227, 231
+  orig: 227, 231
+  offset: 0, 0
+  index: -1
+diamond
+  rotate: false
+  xy: 688, 1
+  size: 227, 231
+  orig: 227, 231
   offset: 0, 0
   index: -1
 
@@ -188,66 +272,38 @@ nBack3.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
-nBackButton
+letterbg
   rotate: false
-  xy: 1, 735
-  size: 550, 203
-  orig: 550, 203
+  xy: 1, 234
+  size: 822, 666
+  orig: 822, 666
   offset: 0, 0
   index: -1
-right
-  rotate: false
-  xy: 1, 525
-  size: 377, 208
-  orig: 377, 208
-  offset: 0, 0
-  index: -1
-wrong
-  rotate: false
-  xy: 1, 315
-  size: 377, 208
-  orig: 377, 208
-  offset: 0, 0
-  index: -1
-retry
-  rotate: false
-  xy: 553, 735
-  size: 377, 203
-  orig: 377, 203
-  offset: 0, 0
-  index: -1
-8D
-  rotate: false
-  xy: 380, 578
-  size: 246, 155
-  orig: 246, 155
-  offset: 0, 0
-  index: -1
-9
-  rotate: false
-  xy: 1, 158
-  size: 246, 155
-  orig: 246, 155
-  offset: 0, 0
-  index: -1
-9D
-  rotate: false
-  xy: 380, 421
-  size: 246, 155
-  orig: 246, 155
-  offset: 0, 0
-  index: -1
-one
-  rotate: false
-  xy: 628, 578
-  size: 246, 155
-  orig: 246, 155
-  offset: 0, 0
-  index: -1
-oneD
+ltri
   rotate: false
   xy: 1, 1
-  size: 246, 155
-  orig: 246, 155
+  size: 227, 231
+  orig: 227, 231
+  offset: 0, 0
+  index: -1
+pentagon
+  rotate: false
+  xy: 230, 1
+  size: 227, 231
+  orig: 227, 231
+  offset: 0, 0
+  index: -1
+rtri
+  rotate: false
+  xy: 459, 1
+  size: 227, 231
+  orig: 227, 231
+  offset: 0, 0
+  index: -1
+square
+  rotate: false
+  xy: 688, 1
+  size: 227, 231
+  orig: 227, 231
   offset: 0, 0
   index: -1
