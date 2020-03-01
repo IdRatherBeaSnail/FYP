@@ -17,6 +17,7 @@ import com.fyp.brain.game.screens.nbackScreen;
 public class MyGdxGame extends Game {
 	private SpriteBatch batch;
 	private Music theme;
+	public boolean backpressed;
 	
 	@Override
 	public void create () {
@@ -27,10 +28,7 @@ public class MyGdxGame extends Game {
 		theme.setVolume(0.5f);
 		theme.play();
 		theme.setLooping(true);
-
-
-
-
+		backpressed = false;
 
 	}
 
@@ -38,7 +36,6 @@ public class MyGdxGame extends Game {
 	public void resize(int width, int height) {
 
 	}
-
 
 	@Override
 	public void render () {
@@ -59,5 +56,12 @@ public class MyGdxGame extends Game {
 	public void dispose () {
 		batch.dispose();
 
+	}
+	public void setBackpressed(boolean back){
+		this.backpressed = back;
+	}
+
+	public boolean getBackPressed(){
+		return backpressed;
 	}
 }

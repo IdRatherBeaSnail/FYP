@@ -1,6 +1,7 @@
 package com.fyp.brain.game.screens;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
@@ -25,7 +26,7 @@ import java.util.Collections;
 public class SymbolScreen implements Screen {
     private ArrayList<Integer> display,xAxis,yAxis;
     private ArrayList<TextButton> buttonArray;
-    private float timer,timer2,deltaTime, roundOne,roundTwo,roundThree,average;
+    private float timer,timer2,deltaTime, roundOne,roundTwo,roundThree,average,currentHighScore;
     private Player player;
     private MyGdxGame game;
     private BitmapFont font;
@@ -37,6 +38,7 @@ public class SymbolScreen implements Screen {
     private TextButtonStyle oneStyle;
     private int buttonNum,counter;
     private Label label;
+    private Preferences score;
 
     public SymbolScreen(MyGdxGame game){
         display = new ArrayList<>();
@@ -72,7 +74,8 @@ public class SymbolScreen implements Screen {
         right3 = new Texture("symbright.png");
 
         over = new Texture("symbolBgEnd.png");
-
+        score = Gdx.app.getPreferences("Highscores");
+        currentHighScore = score.getFloat("currentSymbolHighScore", 0);
 
         stage = new Stage(new ScreenViewport());
     }
@@ -345,6 +348,10 @@ public class SymbolScreen implements Screen {
             five.setVisible(false);
             six.setVisible(false);
             tmp.setVisible(false);
+            if(currentHighScore < average) {
+                score.putFloat("currentSymbolHighScore", average);
+                score.flush();
+            }
 
             if(roundOne == 1){
 
@@ -368,11 +375,11 @@ public class SymbolScreen implements Screen {
 
             if(roundThree == 1){
 
-                stage.getBatch().draw(wrong3,Gdx.graphics.getWidth()/2 - 400,Gdx.graphics.getHeight()/2 - 20);
+                stage.getBatch().draw(wrong3,Gdx.graphics.getWidth()/2 - 400,Gdx.graphics.getHeight()/2 - 15);
 
             } else if (roundThree != 1) {
 
-                stage.getBatch().draw(right3,Gdx.graphics.getWidth()/2 - 400,Gdx.graphics.getHeight()/2 - 20);
+                stage.getBatch().draw(right3,Gdx.graphics.getWidth()/2 - 400,Gdx.graphics.getHeight()/2 - 15);
 
             }
 

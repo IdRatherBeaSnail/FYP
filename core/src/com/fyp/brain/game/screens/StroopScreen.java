@@ -1,6 +1,7 @@
 package com.fyp.brain.game.screens;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
@@ -26,7 +27,7 @@ public class StroopScreen implements Screen {
     private BitmapFont font,font2;
     private Player player;
     private Texture background,over,heart,heart2,heart3,dheart,dheart2,dheart3;
-    private int counter, timerCounter;
+    private int counter, timerCounter,currentHighScore;
     private String currentColour;
     private  Color[] colorType;
     private final String[] colourArray = {"GREEN","WHITE","BLUE","ORANGE","RED","YELLOW",
@@ -41,6 +42,7 @@ public class StroopScreen implements Screen {
     private MyGdxGame game;
     private float deltaTime,timer;
     private Label clock;
+    private Preferences score;
 
     public StroopScreen(MyGdxGame game) {
 
@@ -66,7 +68,8 @@ public class StroopScreen implements Screen {
         dheart = new Texture("heartDead.png");
         dheart2 = new Texture("heartDead.png");
         dheart3 = new Texture("heartDead.png");
-
+        score = Gdx.app.getPreferences("Highscores");
+        currentHighScore = score.getInteger("currentStroopHighScore", 0);
         stage = new Stage (new ScreenViewport());
     }
 
@@ -384,6 +387,10 @@ public class StroopScreen implements Screen {
             red.setVisible(false);
             green.setVisible(false);
             clock.setVisible(false);
+            if(currentHighScore < player.getScore()) {
+                score.putInteger("currentStroopHighScore", player.getScore());
+                score.flush();
+            }
         } else {
             stage.getBatch().begin();
             stage.getBatch().draw(heart,925,1790);

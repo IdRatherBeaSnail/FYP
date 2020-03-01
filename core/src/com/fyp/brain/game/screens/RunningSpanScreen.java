@@ -1,6 +1,7 @@
 package com.fyp.brain.game.screens;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
@@ -17,8 +18,6 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.fyp.brain.game.MyGdxGame;
 import com.fyp.brain.game.player.Player;
-
-
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -37,7 +36,8 @@ public class RunningSpanScreen implements Screen {
     private TextButton one,two,three,four,five,six,seven,eight,nine,zero,retry,menu;
     private String chain;
     private Label label;
-    private int buttonNum;
+    private int buttonNum,currentHighScore;
+    private Preferences score;
 
     public RunningSpanScreen (MyGdxGame game){
 
@@ -65,7 +65,8 @@ public class RunningSpanScreen implements Screen {
         dheart = new Texture("heartDead.png");
         dheart2 = new Texture("heartDead.png");
         dheart3 = new Texture("heartDead.png");
-
+        score = Gdx.app.getPreferences("Highscores");
+        currentHighScore = score.getInteger("currentRunHighScore", 0);
         stage = new Stage(new ScreenViewport());
     }
 
@@ -456,6 +457,10 @@ public class RunningSpanScreen implements Screen {
             nine.setVisible(false);
             zero.setVisible(false);
             label.setVisible(false);
+            if(currentHighScore < player.getScore()) {
+                score.putInteger("currentRunHighScore", player.getScore());
+                score.flush();
+            }
         } else {
             stage.getBatch().begin();
             stage.getBatch().draw(heart,925,1790);

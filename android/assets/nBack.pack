@@ -164,107 +164,93 @@ filter: Nearest,Nearest
 repeat: none
 8
   rotate: false
-  xy: 1, 849
+  xy: 1, 821
   size: 246, 155
   orig: 246, 155
   offset: 0, 0
   index: -1
 8D
   rotate: false
-  xy: 249, 849
+  xy: 249, 821
   size: 246, 155
   orig: 246, 155
   offset: 0, 0
   index: -1
 9
   rotate: false
-  xy: 497, 849
+  xy: 497, 821
   size: 246, 155
   orig: 246, 155
   offset: 0, 0
   index: -1
 9D
   rotate: false
-  xy: 745, 849
+  xy: 745, 821
   size: 246, 155
   orig: 246, 155
   offset: 0, 0
   index: -1
 one
   rotate: false
-  xy: 1, 692
+  xy: 1, 664
   size: 246, 155
   orig: 246, 155
   offset: 0, 0
   index: -1
 oneD
   rotate: false
-  xy: 249, 692
+  xy: 249, 664
   size: 246, 155
   orig: 246, 155
   offset: 0, 0
   index: -1
 retry
   rotate: false
-  xy: 497, 644
+  xy: 497, 616
   size: 377, 203
   orig: 377, 203
   offset: 0, 0
   index: -1
 right
   rotate: false
-  xy: 1, 482
+  xy: 1, 454
   size: 377, 208
   orig: 377, 208
   offset: 0, 0
   index: -1
 mainmenu
   rotate: false
-  xy: 380, 439
+  xy: 380, 411
   size: 550, 203
   orig: 550, 203
   offset: 0, 0
   index: -1
 wrong
   rotate: false
-  xy: 1, 272
+  xy: 1, 244
   size: 377, 208
   orig: 377, 208
   offset: 0, 0
   index: -1
 nBackButton
   rotate: false
-  xy: 380, 234
+  xy: 380, 206
   size: 550, 203
   orig: 550, 203
   offset: 0, 0
   index: -1
 circle
   rotate: false
-  xy: 1, 39
+  xy: 1, 11
   size: 227, 231
   orig: 227, 231
   offset: 0, 0
   index: -1
-corsiOff
+settings
   rotate: false
   xy: 230, 1
-  size: 227, 231
-  orig: 227, 231
-  offset: 0, 0
-  index: -1
-corsiOn
-  rotate: false
-  xy: 459, 1
-  size: 227, 231
-  orig: 227, 231
-  offset: 0, 0
-  index: -1
-diamond
-  rotate: false
-  xy: 688, 1
-  size: 227, 231
-  orig: 227, 231
+  size: 578, 203
+  orig: 578, 203
   offset: 0, 0
   index: -1
 
@@ -279,30 +265,70 @@ letterbg
   orig: 822, 666
   offset: 0, 0
   index: -1
-ltri
+corsiOff
   rotate: false
   xy: 1, 1
   size: 227, 231
   orig: 227, 231
   offset: 0, 0
   index: -1
-pentagon
+corsiOn
   rotate: false
   xy: 230, 1
   size: 227, 231
   orig: 227, 231
   offset: 0, 0
   index: -1
+play
+  rotate: false
+  xy: 459, 28
+  size: 540, 204
+  orig: 540, 204
+  offset: 0, 0
+  index: -1
+
+nBack4.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+leaderboard
+  rotate: false
+  xy: 1, 700
+  size: 796, 205
+  orig: 796, 205
+  offset: 0, 0
+  index: -1
+diamond
+  rotate: false
+  xy: 1, 467
+  size: 227, 231
+  orig: 227, 231
+  offset: 0, 0
+  index: -1
+ltri
+  rotate: false
+  xy: 1, 234
+  size: 227, 231
+  orig: 227, 231
+  offset: 0, 0
+  index: -1
+pentagon
+  rotate: false
+  xy: 230, 467
+  size: 227, 231
+  orig: 227, 231
+  offset: 0, 0
+  index: -1
 rtri
   rotate: false
-  xy: 459, 1
+  xy: 1, 1
   size: 227, 231
   orig: 227, 231
   offset: 0, 0
   index: -1
 square
   rotate: false
-  xy: 688, 1
+  xy: 230, 234
   size: 227, 231
   orig: 227, 231
   offset: 0, 0

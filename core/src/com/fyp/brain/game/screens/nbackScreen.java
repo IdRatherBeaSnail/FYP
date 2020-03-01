@@ -1,6 +1,7 @@
 package com.fyp.brain.game.screens;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
@@ -29,20 +30,25 @@ public class nbackScreen implements Screen {
     private BitmapFont font;
     private Skin skin;
     private TextureAtlas buttonAtlas;
-    private int counter;
+    private int counter,currentHighScore;
+    private Preferences score;
     private Player player;
     private int N = 3;
     private TextButton character,correct,retry,menu, wrong;
     private String letter;
     private String easy = "a,o,e,a,o,e,o,o,e,o,e,o,a,o,o,e,o,e,e,a,o,a,o,a,e,d,e,o,a,d,a,o,d,e,a,d,o,k,e,o,k,k,a,d,o,a,o,e,a,o,e,o,a,o,d,o,a,o,d,a,d,e,d,o,a,o,e";
     private String[] letters;
+    private boolean start;
+    private float timer,deltaTime;
 
 
     public nbackScreen(MyGdxGame game) {
         this.game = game;
         player = new Player();
         player.setLife(3);
-
+        timer = 0;
+        deltaTime = Gdx.graphics.getDeltaTime();
+        start = true;
         font = new BitmapFont(Gdx.files.internal("fonty.fnt"));
         counter = 0;
         String temp = easy.toUpperCase();
@@ -58,9 +64,8 @@ public class nbackScreen implements Screen {
         dheart = new Texture("heartDead.png");
         dheart2 = new Texture("heartDead.png");
         dheart3 = new Texture("heartDead.png");
-
-
-
+        score = Gdx.app.getPreferences("Highscores");
+        currentHighScore = score.getInteger("currentNbackHighScore", 0);
         stage = new Stage (new ScreenViewport());
     }
 
@@ -206,8 +211,19 @@ public class nbackScreen implements Screen {
 
         if(counter < N){
             correct.setVisible(false);
+            wrong.setVisible(false);
         } else {
             correct.setVisible(true);
+            wrong.setVisible(true);
+        }
+        if(start){
+            timer += deltaTime;
+            if(counter == 3){
+                start = false;
+            } else if(timer >= 1){
+                counter++;
+                timer = 0;
+            }
         }
         character.setText(letters[counter]);
 
@@ -215,7 +231,6 @@ public class nbackScreen implements Screen {
         stage.getBatch().begin();
         font.draw(stage.getBatch(), Integer.toString(player.getScore()), 300,1875);
         font.draw(stage.getBatch(), "N = " + N, Gdx.graphics.getWidth()/2 - 60,Gdx.graphics.getHeight()/2 - 220.0f);
-        //font.draw(stage.getBatch(), background.toString(), Gdx.graphics.getWidth()/2 ,Gdx.graphics.getHeight()/2);
         stage.getBatch().end();
 
 
@@ -254,6 +269,10 @@ public class nbackScreen implements Screen {
             wrong.setVisible(false);
             retry.setVisible(true);
             menu.setVisible(true);
+            if(currentHighScore < player.getScore()) {
+                score.putInteger("currentNbackHighScore", player.getScore());
+                score.flush();
+            }
         } else {
             stage.getBatch().begin();
             stage.getBatch().draw(heart,925,1790);

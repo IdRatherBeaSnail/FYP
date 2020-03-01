@@ -13,6 +13,7 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton.*;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.fyp.brain.game.MyGdxGame;
@@ -22,7 +23,7 @@ public class mainScreen implements Screen {
     private final Stage stage;
     private SpriteBatch batch;
     private Texture img;
-    private TextButton nback,stroop,running;
+    private TextButton nback,stroop,running,play,settings,leaderboard;
     private static final int FRAME_COLS = 7, FRAME_ROWS = 2;
     private Texture rainSheet;
     private float stateTime;
@@ -42,22 +43,20 @@ public class mainScreen implements Screen {
 
     @Override
     public void show() {
-        batch = new SpriteBatch();
-        img = new Texture("mainBackground2.png");
         Gdx.input.setInputProcessor(stage);
         skin = new Skin();
         buttonAtlas = new TextureAtlas("nBack.pack");
         skin.addRegions(buttonAtlas);
 
 
-        TextButton.TextButtonStyle nbackStyle = new TextButton.TextButtonStyle();
-        nbackStyle.up = skin.getDrawable("nBackButton");
-        nbackStyle.font = font;
+        TextButton.TextButtonStyle playStyle = new TextButton.TextButtonStyle();
+        playStyle.up = skin.getDrawable("play");
+        playStyle.font = font;
 
-        nback = new TextButton("",nbackStyle);
-        nback.setPosition(Gdx.graphics.getWidth()/2 - 275  ,Gdx.graphics.getHeight()/2+150);
+        play = new TextButton("",playStyle);
+        play.setPosition(Gdx.graphics.getWidth()/2 - 255  ,Gdx.graphics.getHeight()/2 + 100);
 
-        nback.addListener(new ClickListener() {
+        play.addListener(new ClickListener() {
             @Override
             public void clicked (InputEvent event, float x, float y){
 
@@ -68,16 +67,16 @@ public class mainScreen implements Screen {
 
         });
 
-        stage.addActor(nback);
+        stage.addActor(play);
 
-        TextButton.TextButtonStyle stroopStyle = new TextButton.TextButtonStyle();
-        stroopStyle.up = skin.getDrawable("nBackButton");
-        stroopStyle.font = font;
+        TextButtonStyle settingsStyle = new TextButton.TextButtonStyle();
+        settingsStyle.up = skin.getDrawable("settings");
+        settingsStyle.font = font;
 
-        stroop = new TextButton("",nbackStyle);
-        stroop.setPosition(Gdx.graphics.getWidth()/2 - 275  ,Gdx.graphics.getHeight()/2 - 50);
+        settings = new TextButton("",settingsStyle);
+        settings.setPosition(Gdx.graphics.getWidth()/2 - 275  ,Gdx.graphics.getHeight()/2 - 400);
 
-        stroop.addListener(new ClickListener() {
+        settings.addListener(new ClickListener() {
             @Override
             public void clicked (InputEvent event, float x, float y){
 
@@ -88,27 +87,27 @@ public class mainScreen implements Screen {
 
         });
 
-        stage.addActor(stroop);
+        stage.addActor(settings);
 
-        TextButton.TextButtonStyle runningStyle = new TextButton.TextButtonStyle();
-        runningStyle.up = skin.getDrawable("nBackButton");
-        runningStyle.font = font;
+        TextButtonStyle leaderStyle = new TextButton.TextButtonStyle();
+        leaderStyle.up = skin.getDrawable("leaderboard");
+        leaderStyle.font = font;
 
-        running = new TextButton("",runningStyle);
-        running.setPosition(Gdx.graphics.getWidth()/2 - 275  ,Gdx.graphics.getHeight()/2 - 250);
+        leaderboard = new TextButton("",leaderStyle);
+        leaderboard.setPosition(Gdx.graphics.getWidth()/2 - 375  ,Gdx.graphics.getHeight()/2 - 150);
 
-        running.addListener(new ClickListener() {
+        leaderboard.addListener(new ClickListener() {
             @Override
             public void clicked (InputEvent event, float x, float y){
 
-                game.setScreen(new SymbolScreen(game));
+                game.setScreen(new Leaderboard(game));
 
 
             }
 
         });
 
-        stage.addActor(running);
+        stage.addActor(leaderboard);
 
 
 

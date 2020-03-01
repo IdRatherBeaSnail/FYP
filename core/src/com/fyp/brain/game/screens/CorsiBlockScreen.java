@@ -1,6 +1,7 @@
 package com.fyp.brain.game.screens;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
@@ -36,7 +37,8 @@ public class CorsiBlockScreen implements Screen {
     private TextButton one,two,three,four,five,six,seven,eight,nine,ten,eleven,twelve,thirteen,
                        fourteen,fifteen,sixteen,seventeen,eighteen,nineteen,twenty,retry,menu;
     private TextButtonStyle change,oneStyle;
-    private int buttonNum;
+    private int buttonNum,currentHighScore;
+    private Preferences score;
 
 
     public CorsiBlockScreen(MyGdxGame game){
@@ -56,6 +58,8 @@ public class CorsiBlockScreen implements Screen {
         timer = 2;
         counter = 1;
 
+        score = Gdx.app.getPreferences("Highscores");
+        currentHighScore = score.getInteger("currentCorsiHighScore", 0);
 
         this.game = game;
         player = new Player();
@@ -744,6 +748,10 @@ public class CorsiBlockScreen implements Screen {
             eighteen.setVisible(false);
             nineteen.setVisible(false);
             twenty.setVisible(false);
+            if(currentHighScore < player.getScore()) {
+                score.putInteger("currentCorsiHighScore", player.getScore());
+                score.flush();
+            }
         } else {
             stage.getBatch().begin();
             stage.getBatch().draw(heart,925,1790);

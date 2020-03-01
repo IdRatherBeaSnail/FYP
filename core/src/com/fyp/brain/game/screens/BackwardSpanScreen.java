@@ -1,6 +1,7 @@
 package com.fyp.brain.game.screens;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
@@ -35,7 +36,8 @@ public class BackwardSpanScreen implements Screen {
     private TextButton one,two,three,four,five,six,seven,eight,nine,zero,retry,menu;
     private String chain;
     private Label label;
-    private int buttonNum;
+    private int buttonNum,currentHighScore;
+    private Preferences score;
 
 
     public BackwardSpanScreen (MyGdxGame game){
@@ -45,8 +47,6 @@ public class BackwardSpanScreen implements Screen {
         counter = 0;
         deltaTime = 0;
         timer = 2;
-
-
         this.game = game;
         player = new Player();
         player.setLife(3);
@@ -62,7 +62,8 @@ public class BackwardSpanScreen implements Screen {
         dheart = new Texture("heartDead.png");
         dheart2 = new Texture("heartDead.png");
         dheart3 = new Texture("heartDead.png");
-
+        score = Gdx.app.getPreferences("Highscores");
+        currentHighScore = score.getInteger("currentBackHighScore", 0);
         stage = new Stage(new ScreenViewport());
     }
     @Override
@@ -445,6 +446,10 @@ public class BackwardSpanScreen implements Screen {
             nine.setVisible(false);
             zero.setVisible(false);
             label.setVisible(false);
+            if(currentHighScore < player.getScore()) {
+                score.putInteger("currentBackHighScore", player.getScore());
+                score.flush();
+            }
         } else {
             stage.getBatch().begin();
             stage.getBatch().draw(heart,925,1790);
