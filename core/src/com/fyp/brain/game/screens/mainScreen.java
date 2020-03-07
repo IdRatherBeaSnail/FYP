@@ -2,7 +2,9 @@ package com.fyp.brain.game.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -15,8 +17,12 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.*;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
+import com.badlogic.gdx.utils.viewport.Viewport;
 import com.fyp.brain.game.MyGdxGame;
+
+
 
 public class mainScreen implements Screen {
     private final BitmapFont font;
@@ -31,14 +37,22 @@ public class mainScreen implements Screen {
     private MyGdxGame game;
     private Skin skin;
     private TextureAtlas buttonAtlas;
+    private Camera camera;
+    private Viewport viewport;
 
 
     public mainScreen(MyGdxGame game){
         this.game = game;
         batch = new SpriteBatch();
+        camera = new OrthographicCamera(1080.0f,1920.0f);
+        camera.position.set(camera.viewportWidth / 2, camera.viewportHeight / 2, 0);
+        viewport = new FitViewport(1080.0f,1920.0f,camera);
+        stage = new Stage(viewport);
+        Gdx.input.setInputProcessor(stage);
         img = new Texture("mainBackground2.png");
         font = new BitmapFont(Gdx.files.internal("fonty.fnt"));
-        stage = new Stage(new ScreenViewport());
+
+
     }
 
     @Override
@@ -60,7 +74,7 @@ public class mainScreen implements Screen {
             @Override
             public void clicked (InputEvent event, float x, float y){
 
-                    game.setScreen(new nbackScreen(game));
+                    game.setScreen(new GameSelect(game));
 
 
             }
@@ -80,7 +94,7 @@ public class mainScreen implements Screen {
             @Override
             public void clicked (InputEvent event, float x, float y){
 
-                game.setScreen(new StroopScreen(game));
+                game.setScreen(new SettingsScreen(game));
 
 
             }
@@ -111,32 +125,20 @@ public class mainScreen implements Screen {
 
 
 
-        rainSheet = new Texture(Gdx.files.internal("rainSheets.png"));
 
-        TextureRegion[][] tmp = TextureRegion.split(rainSheet,rainSheet.getWidth()/FRAME_COLS, rainSheet.getHeight()/FRAME_ROWS);
-
-        TextureRegion[] rainFrames = new TextureRegion[FRAME_COLS * FRAME_ROWS];
-        int index = 0;
-        for (int i = 0; i < FRAME_ROWS; i++) {
-            for (int j = 0; j < FRAME_COLS; j++) {
-                rainFrames[index++] = tmp[i][j];
-            }
-        }
-
-        rainAnimation = new Animation<TextureRegion>(0.055f, rainFrames);
-
-        stateTime = 0f;
     }
 
     @Override
     public void render(float delta) {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        stateTime += Gdx.graphics.getDeltaTime();
-        TextureRegion currentFrame = rainAnimation.getKeyFrame(stateTime, true);
-        batch.begin();
-        batch.draw(img, 0, 0);
-        batch.draw(currentFrame,0,0);
-        batch.end();
+
+        stage.getBatch().setProjectionMatrix(stage.getCamera().combined);
+        stage.getCamera().update();
+
+        stage.getBatch().begin();
+        stage.getBatch().draw(img, 0, 0,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+
+        stage.getBatch().end();
 
         stage.draw();
         stage.act();
@@ -144,7 +146,9 @@ public class mainScreen implements Screen {
 
     @Override
     public void resize(int width, int height) {
-
+        stage.getViewport().update(width, height);
+        stage.getCamera().position.set(Gdx.graphics.getWidth() / 2, Gdx.graphics.getHeight() / 2, 0);
+        stage.getCamera().update();
     }
 
     @Override

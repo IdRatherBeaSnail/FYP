@@ -3,8 +3,10 @@ package com.fyp.brain.game.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -15,7 +17,9 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.*;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
+import com.badlogic.gdx.utils.viewport.Viewport;
 import com.fyp.brain.game.MyGdxGame;
 import com.fyp.brain.game.player.Player;
 
@@ -34,11 +38,13 @@ public class SymbolScreen implements Screen {
     private Stage stage;
     private Skin skin;
     private TextureAtlas buttonAtlas;
-    private TextButton one,two,three,four,five,six,tmp,retry,menu;
+    private TextButton one,two,three,four,five,six,tmp,retry,menu,back;
     private TextButtonStyle oneStyle;
     private int buttonNum,counter;
     private Label label;
     private Preferences score;
+    private Viewport viewport;
+    private Camera camera;
 
     public SymbolScreen(MyGdxGame game){
         display = new ArrayList<>();
@@ -77,7 +83,11 @@ public class SymbolScreen implements Screen {
         score = Gdx.app.getPreferences("Highscores");
         currentHighScore = score.getFloat("currentSymbolHighScore", 0);
 
-        stage = new Stage(new ScreenViewport());
+        camera = new OrthographicCamera(1080.0f,1920.0f);
+        camera.position.set(camera.viewportWidth / 2, camera.viewportHeight / 2, 0);
+        viewport = new FitViewport(1080.0f,1920.0f,camera);
+        stage = new Stage(viewport);
+        Gdx.input.setInputProcessor(stage);
     }
 
     @Override
@@ -263,6 +273,26 @@ public class SymbolScreen implements Screen {
         label.setFontScale(1.5f);
         stage.addActor(label);
 
+        TextButtonStyle backStyle = new TextButtonStyle();
+        backStyle.font = font;
+        backStyle.up = skin.getDrawable("backButton");
+
+        back = new TextButton("",backStyle);
+        back.setPosition(Gdx.graphics.getWidth()/2 - 160.0f,Gdx.graphics.getHeight()/2 - 960.0f);
+
+        back.addListener(new ClickListener() {
+            @Override
+            public void clicked (InputEvent event, float x, float y){
+                game.setScreen(new GameSelect(game));
+
+            }
+
+
+        });
+
+        stage.addActor(back);
+
+
 
 
     }
@@ -270,8 +300,10 @@ public class SymbolScreen implements Screen {
     @Override
     public void render(float v) {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        stage.getBatch().setProjectionMatrix(stage.getCamera().combined);
+        stage.getCamera().update();
         stage.getBatch().begin();
-        stage.getBatch().draw(background, 0, 0);
+        stage.getBatch().draw(background, 0, 0,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         stage.getBatch().end();
         menu.setVisible(false);
         retry.setVisible(false);
@@ -348,7 +380,7 @@ public class SymbolScreen implements Screen {
             five.setVisible(false);
             six.setVisible(false);
             tmp.setVisible(false);
-            if(currentHighScore < average) {
+            if(currentHighScore > average || currentHighScore == 0) {
                 score.putFloat("currentSymbolHighScore", average);
                 score.flush();
             }
@@ -393,8 +425,10 @@ public class SymbolScreen implements Screen {
     }
 
     @Override
-    public void resize(int i, int i1) {
-
+    public void resize(int width, int height) {
+        stage.getViewport().update(width, height);
+        stage.getCamera().position.set(Gdx.graphics.getWidth() / 2, Gdx.graphics.getHeight() / 2, 0);
+        stage.getCamera().update();
     }
 
     @Override

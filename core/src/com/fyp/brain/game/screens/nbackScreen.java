@@ -3,17 +3,24 @@ package com.fyp.brain.game.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Align;
+import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
+import com.badlogic.gdx.utils.viewport.StretchViewport;
+import com.badlogic.gdx.utils.viewport.Viewport;
 import com.fyp.brain.game.MyGdxGame;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
@@ -24,6 +31,9 @@ import java.util.Random;
 
 public class nbackScreen implements Screen {
 
+    private Viewport viewport;
+    private Camera camera;
+    private Batch batch;
     private MyGdxGame game;
     private Stage stage;
     private Texture background,over,heart,heart2,heart3,dheart,dheart2,dheart3;
@@ -34,7 +44,7 @@ public class nbackScreen implements Screen {
     private Preferences score;
     private Player player;
     private int N = 3;
-    private TextButton character,correct,retry,menu, wrong;
+    private TextButton character,correct,retry,menu, wrong,back;
     private String letter;
     private String easy = "a,o,e,a,o,e,o,o,e,o,e,o,a,o,o,e,o,e,e,a,o,a,o,a,e,d,e,o,a,d,a,o,d,e,a,d,o,k,e,o,k,k,a,d,o,a,o,e,a,o,e,o,a,o,d,o,a,o,d,a,d,e,d,o,a,o,e";
     private String[] letters;
@@ -66,7 +76,14 @@ public class nbackScreen implements Screen {
         dheart3 = new Texture("heartDead.png");
         score = Gdx.app.getPreferences("Highscores");
         currentHighScore = score.getInteger("currentNbackHighScore", 0);
-        stage = new Stage (new ScreenViewport());
+
+
+        camera = new OrthographicCamera(1080.0f,1920.0f);
+        camera.position.set(camera.viewportWidth / 2, camera.viewportHeight / 2, 0);
+        viewport = new StretchViewport(1080.0f,1920.0f,camera);
+        stage = new Stage(viewport);
+        stage.getViewport().apply();
+        Gdx.input.setInputProcessor(stage);
     }
 
     @Override
@@ -191,6 +208,25 @@ public class nbackScreen implements Screen {
             }
 
         });
+        TextButtonStyle backStyle = new TextButtonStyle();
+        backStyle.font = font;
+        backStyle.up = skin.getDrawable("backButton");
+
+        back = new TextButton("",backStyle);
+        back.setPosition(Gdx.graphics.getWidth()/2 - 160.0f,Gdx.graphics.getHeight()/2 - 960.0f);
+
+        back.addListener(new ClickListener() {
+            @Override
+            public void clicked (InputEvent event, float x, float y){
+                game.setScreen(new GameSelect(game));
+
+            }
+
+
+        });
+
+        stage.addActor(back);
+
 
 
         stage.addActor(correct);
@@ -203,8 +239,11 @@ public class nbackScreen implements Screen {
     @Override
     public void render(float delta) {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        stage.getBatch().setProjectionMatrix(stage.getCamera().combined);
+        stage.getCamera().update();
+
         stage.getBatch().begin();
-        stage.getBatch().draw(background, 0, 0);
+        stage.getBatch().draw(background, 0, 0,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         stage.getBatch().end();
         menu.setVisible(false);
         retry.setVisible(false);
@@ -238,30 +277,28 @@ public class nbackScreen implements Screen {
 
         if (player.getLife() == 3){
             stage.getBatch().begin();
-            stage.getBatch().draw(heart,925,1800);
-            stage.getBatch().draw(heart2,825,1800);
-            stage.getBatch().draw(heart3,725,1800);
+            stage.getBatch().draw(heart,925,1800,92, 89);
+            stage.getBatch().draw(heart2,825,1800,92, 89);
+            stage.getBatch().draw(heart3,725,1800,92, 89);
             stage.getBatch().end();
         } else if ( player.getLife() == 2){
-
             stage.getBatch().begin();
-            stage.getBatch().draw(dheart,925,1800);
-            stage.getBatch().draw(heart2,825,1800);
-            stage.getBatch().draw(heart3,725,1800);
+            stage.getBatch().draw(dheart,925,1800,92, 89);
+            stage.getBatch().draw(heart2,825,1800,92, 89);
+            stage.getBatch().draw(heart3,725,1800,92, 89);
             stage.getBatch().end();
         } else if (player.getLife() == 1) {
-
             stage.getBatch().begin();
-            stage.getBatch().draw(dheart,925,1800);
-            stage.getBatch().draw(dheart2,825,1800);
-            stage.getBatch().draw(heart3,725,1800);
+            stage.getBatch().draw(dheart,925,1800,92, 89);
+            stage.getBatch().draw(dheart2,825,1800,92, 89);
+            stage.getBatch().draw(heart3,725,1800,92, 89);
             stage.getBatch().end();
         } else if (player.getLife() <= 0) {
             stage.getBatch().begin();
-            stage.getBatch().draw(dheart,925,1800);
-            stage.getBatch().draw(dheart2,825,1800);
-            stage.getBatch().draw(dheart3,725,1800);
-            stage.getBatch().draw(over, 0, 0);
+            stage.getBatch().draw(dheart,925,1800,92, 89);
+            stage.getBatch().draw(dheart2,825,1800,92, 89);
+            stage.getBatch().draw(dheart3,725,1800,92, 89);
+            stage.getBatch().draw(over, 0, 0,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
             font.draw(stage.getBatch(), Integer.toString(player.getScore()), Gdx.graphics.getWidth()/2 + 90,Gdx.graphics.getHeight()/2 + 215);
             stage.getBatch().end();
             character.setVisible(false);
@@ -269,15 +306,15 @@ public class nbackScreen implements Screen {
             wrong.setVisible(false);
             retry.setVisible(true);
             menu.setVisible(true);
-            if(currentHighScore < player.getScore()) {
+            if(currentHighScore < player.getScore()|| currentHighScore == 0) {
                 score.putInteger("currentNbackHighScore", player.getScore());
                 score.flush();
             }
         } else {
             stage.getBatch().begin();
-            stage.getBatch().draw(heart,925,1790);
-            stage.getBatch().draw(heart2,825,1790);
-            stage.getBatch().draw(heart3,725,1790);
+            stage.getBatch().draw(heart,925,1800,92, 89);
+            stage.getBatch().draw(heart2,825,1800,92, 89);
+            stage.getBatch().draw(heart3,725,1800,92, 89);
             stage.getBatch().end();
         }
 
@@ -291,7 +328,9 @@ public class nbackScreen implements Screen {
 
     @Override
     public void resize(int width, int height) {
-
+        stage.getViewport().update(width, height);
+        stage.getCamera().position.set(stage.getCamera().viewportWidth / 2, stage.getCamera().viewportHeight / 2, 0);
+        stage.getCamera().update();
     }
 
     @Override

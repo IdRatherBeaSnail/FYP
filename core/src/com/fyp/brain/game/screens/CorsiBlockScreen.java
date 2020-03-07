@@ -14,6 +14,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.fyp.brain.game.MyGdxGame;
 import com.fyp.brain.game.player.Player;
@@ -35,7 +36,7 @@ public class CorsiBlockScreen implements Screen {
     private Skin skin;
     private TextureAtlas buttonAtlas;
     private TextButton one,two,three,four,five,six,seven,eight,nine,ten,eleven,twelve,thirteen,
-                       fourteen,fifteen,sixteen,seventeen,eighteen,nineteen,twenty,retry,menu;
+                       fourteen,fifteen,sixteen,seventeen,eighteen,nineteen,twenty,retry,menu,back;
     private TextButtonStyle change,oneStyle;
     private int buttonNum,currentHighScore;
     private Preferences score;
@@ -77,7 +78,7 @@ public class CorsiBlockScreen implements Screen {
         dheart2 = new Texture("heartDead.png");
         dheart3 = new Texture("heartDead.png");
 
-        stage = new Stage(new ScreenViewport());
+        stage = new Stage(new FitViewport(1080.0f,1920.0f));
     }
     @Override
     public void show() {
@@ -523,6 +524,26 @@ public class CorsiBlockScreen implements Screen {
         });
 
         stage.addActor(menu);
+
+        TextButtonStyle backStyle = new TextButtonStyle();
+        backStyle.font = font;
+        backStyle.up = skin.getDrawable("backButton");
+
+        back = new TextButton("",backStyle);
+        back.setPosition(Gdx.graphics.getWidth()/2 - 160.0f,Gdx.graphics.getHeight()/2 - 960.0f);
+
+        back.addListener(new ClickListener() {
+            @Override
+            public void clicked (InputEvent event, float x, float y){
+                game.setScreen(new GameSelect(game));
+
+            }
+
+
+        });
+
+        stage.addActor(back);
+
 
 
 

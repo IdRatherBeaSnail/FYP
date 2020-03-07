@@ -3,8 +3,10 @@ package com.fyp.brain.game.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -15,7 +17,9 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.*;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
+import com.badlogic.gdx.utils.viewport.Viewport;
 import com.fyp.brain.game.MyGdxGame;
 import com.fyp.brain.game.player.Player;
 import java.text.DecimalFormat;
@@ -38,11 +42,13 @@ public class StroopScreen implements Screen {
             "BLUE","GREEN","RED","RED","WHITE","ORANGE","YELLOW"};
     private Skin skin;
     private TextureAtlas buttonAtlas;
-    private TextButton orange,yellow,white,blue,green,red,retry,menu;
+    private TextButton orange,yellow,white,blue,green,red,retry,menu,back;
     private MyGdxGame game;
     private float deltaTime,timer;
     private Label clock;
     private Preferences score;
+    private Viewport viewport;
+    private Camera camera;
 
     public StroopScreen(MyGdxGame game) {
 
@@ -70,7 +76,11 @@ public class StroopScreen implements Screen {
         dheart3 = new Texture("heartDead.png");
         score = Gdx.app.getPreferences("Highscores");
         currentHighScore = score.getInteger("currentStroopHighScore", 0);
-        stage = new Stage (new ScreenViewport());
+        camera = new OrthographicCamera(1080.0f,1920.0f);
+        camera.position.set(camera.viewportWidth / 2, camera.viewportHeight / 2, 0);
+        viewport = new FitViewport(1080.0f,1920.0f,camera);
+        stage = new Stage(viewport);
+        Gdx.input.setInputProcessor(stage);
     }
 
 
@@ -82,6 +92,28 @@ public class StroopScreen implements Screen {
         buttonAtlas = new TextureAtlas("nBack.pack");
 
         skin.addRegions(buttonAtlas);
+
+        TextButtonStyle backStyle = new TextButtonStyle();
+        backStyle.font = font;
+        backStyle.up = skin.getDrawable("backButton");
+
+        back = new TextButton("",backStyle);
+        back.setPosition(Gdx.graphics.getWidth()/2 - 160.0f,Gdx.graphics.getHeight()/2 - 960.0f);
+
+        back.addListener(new ClickListener() {
+            @Override
+            public void clicked (InputEvent event, float x, float y){
+                game.setScreen(new GameSelect(game));
+
+            }
+
+
+        });
+
+        stage.addActor(back);
+
+
+
 
         TextButtonStyle yellowStyle = new TextButtonStyle();
         yellowStyle.font = font;
@@ -318,9 +350,12 @@ public class StroopScreen implements Screen {
     @Override
     public void render(float delta) {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        stage.getBatch().setProjectionMatrix(stage.getCamera().combined);
+        stage.getCamera().update();
         stage.getBatch().begin();
-        stage.getBatch().draw(background, 0, 0);
+        stage.getBatch().draw(background, 0, 0,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         stage.getBatch().end();
+
         menu.setVisible(false);
         retry.setVisible(false);
 
@@ -387,15 +422,15 @@ public class StroopScreen implements Screen {
             red.setVisible(false);
             green.setVisible(false);
             clock.setVisible(false);
-            if(currentHighScore < player.getScore()) {
+            if(currentHighScore < player.getScore()|| currentHighScore == 0) {
                 score.putInteger("currentStroopHighScore", player.getScore());
                 score.flush();
             }
         } else {
             stage.getBatch().begin();
-            stage.getBatch().draw(heart,925,1790);
-            stage.getBatch().draw(heart2,825,1790);
-            stage.getBatch().draw(heart3,725,1790);
+            stage.getBatch().draw(heart,925,1800,92, 89);
+            stage.getBatch().draw(heart2,825,1800,92, 89);
+            stage.getBatch().draw(heart3,725,1800,92, 89);
             stage.getBatch().end();
         }
 
@@ -408,7 +443,9 @@ public class StroopScreen implements Screen {
 
     @Override
     public void resize(int width, int height) {
-
+        stage.getViewport().update(width, height);
+        stage.getCamera().position.set(Gdx.graphics.getWidth() / 2, Gdx.graphics.getHeight() / 2, 0);
+        stage.getCamera().update();
     }
 
     @Override

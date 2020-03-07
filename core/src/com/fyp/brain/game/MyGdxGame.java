@@ -4,6 +4,7 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
@@ -17,18 +18,23 @@ import com.fyp.brain.game.screens.nbackScreen;
 public class MyGdxGame extends Game {
 	private SpriteBatch batch;
 	private Music theme;
-	public boolean backpressed;
+	private float musicVol,soundVol;
+	private Preferences audio;
+
 	
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
 		this.setScreen(new mainScreen(this));
+		audio = Gdx.app.getPreferences("Audio");
+		musicVol = audio.getFloat("musicVol",0.5f);
+		soundVol = audio.getFloat("soundVol",0.5f);
 		theme = Gdx.audio.newMusic(Gdx.files.internal("mainTheme.mp3"));
 
-		theme.setVolume(0.5f);
+		theme.setVolume(musicVol);
 		theme.play();
 		theme.setLooping(true);
-		backpressed = false;
+
 
 	}
 
@@ -39,6 +45,7 @@ public class MyGdxGame extends Game {
 
 	@Override
 	public void render () {
+
 		super.render();
 	}
 
@@ -57,11 +64,28 @@ public class MyGdxGame extends Game {
 		batch.dispose();
 
 	}
-	public void setBackpressed(boolean back){
-		this.backpressed = back;
+
+
+	public Music getTheme(){
+
+		return theme;
 	}
 
-	public boolean getBackPressed(){
-		return backpressed;
+	public float getMusicVol(){
+		return musicVol;
+	}
+
+	public void setMusicVol(float vol){
+
+		this.musicVol = vol;
+	}
+
+	public float getSoundVol(){
+		return soundVol;
+	}
+
+	public void setSoundVol(float vol){
+
+		this.soundVol = vol;
 	}
 }
