@@ -19,6 +19,12 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.fyp.brain.game.MyGdxGame;
+import com.fyp.brain.game.screens.gameInfo.BackwardSpanInfo;
+import com.fyp.brain.game.screens.gameInfo.CorsiBlockInfo;
+import com.fyp.brain.game.screens.gameInfo.RunningSpanInfo;
+import com.fyp.brain.game.screens.gameInfo.StroopInfo;
+import com.fyp.brain.game.screens.gameInfo.SymbolInfo;
+import com.fyp.brain.game.screens.gameInfo.nbackInfo;
 
 public class GameSelect implements Screen {
     private MyGdxGame game;
@@ -64,7 +70,7 @@ public class GameSelect implements Screen {
         one.addListener(new ClickListener() {
             @Override
             public void clicked (InputEvent event, float x, float y){
-                 game.setScreen(new nbackScreen(game));
+                 game.setScreen(new nbackInfo(game));
                 }
             }
 
@@ -81,7 +87,7 @@ public class GameSelect implements Screen {
         two.addListener(new ClickListener() {
             @Override
             public void clicked (InputEvent event, float x, float y){
-                game.setScreen(new RunningSpanScreen(game));
+                game.setScreen(new RunningSpanInfo(game));
                 }
 
 
@@ -99,7 +105,7 @@ public class GameSelect implements Screen {
         three.addListener(new ClickListener() {
             @Override
             public void clicked (InputEvent event, float x, float y){
-                game.setScreen(new CorsiBlockScreen(game));
+                game.setScreen(new CorsiBlockInfo(game));
             }
 
         });
@@ -115,7 +121,7 @@ public class GameSelect implements Screen {
         four.addListener(new ClickListener() {
             @Override
             public void clicked (InputEvent event, float x, float y){
-                game.setScreen(new SymbolScreen(game));
+                game.setScreen(new SymbolInfo(game));
                 }
 
 
@@ -132,7 +138,7 @@ public class GameSelect implements Screen {
         five.addListener(new ClickListener() {
             @Override
             public void clicked (InputEvent event, float x, float y){
-                game.setScreen(new StroopScreen(game));
+                game.setScreen(new StroopInfo(game));
             }
 
         });
@@ -148,7 +154,7 @@ public class GameSelect implements Screen {
         six.addListener(new ClickListener() {
             @Override
             public void clicked (InputEvent event, float x, float y){
-                game.setScreen(new BackwardSpanScreen(game));
+                game.setScreen(new BackwardSpanInfo(game));
             }
 
         });
@@ -188,9 +194,9 @@ public class GameSelect implements Screen {
         stage.getBatch().setProjectionMatrix(stage.getCamera().combined);
         stage.getCamera().update();
 
-        batch.begin();
-        batch.draw(background, 0, 0,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        batch.end();
+        stage.getBatch().begin();
+        stage.getBatch().draw(background, 0, 0,Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        stage.getBatch().end();
         stage.draw();
         stage.act();
 

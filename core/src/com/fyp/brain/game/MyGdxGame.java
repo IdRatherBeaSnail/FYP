@@ -1,18 +1,11 @@
 package com.fyp.brain.game;
 
-import com.badlogic.gdx.ApplicationAdapter;
-import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.audio.Music;
-import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.fyp.brain.game.screens.mainScreen;
-import com.fyp.brain.game.screens.nbackScreen;
 
 
 public class MyGdxGame extends Game {
@@ -38,10 +31,6 @@ public class MyGdxGame extends Game {
 
 	}
 
-	@Override
-	public void resize(int width, int height) {
-
-	}
 
 	@Override
 	public void render () {
@@ -72,6 +61,7 @@ public class MyGdxGame extends Game {
 	}
 
 	public float getMusicVol(){
+
 		return musicVol;
 	}
 

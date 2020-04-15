@@ -14,10 +14,6 @@ public class Player {
         score = score+add;
     }
 
-    public void setMinScore(int add){
-        score = score-add;
-    }
-
     public int getScore(){
         return score;
     }
