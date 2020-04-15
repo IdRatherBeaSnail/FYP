@@ -5,93 +5,93 @@ filter: Nearest,Nearest
 repeat: none
 letterbg
   rotate: false
-  xy: 1, 343
+  xy: 1, 345
   size: 822, 666
   orig: 822, 666
   offset: 0, 0
   index: -1
+leaderboard
+  rotate: false
+  xy: 1, 138
+  size: 796, 205
+  orig: 796, 205
+  offset: 0, 0
+  index: -1
+blue
+  rotate: false
+  xy: 1, 1
+  size: 365, 135
+  orig: 365, 135
+  offset: 0, 0
+  index: -1
+green
+  rotate: false
+  xy: 368, 1
+  size: 365, 135
+  orig: 365, 135
+  offset: 0, 0
+  index: -1
+next
+  rotate: false
+  xy: 799, 143
+  size: 200, 200
+  orig: 200, 200
+  offset: 0, 0
+  index: -1
 musicButtonHover
   rotate: false
-  xy: 825, 922
+  xy: 825, 924
   size: 87, 87
   orig: 87, 87
   offset: 0, 0
   index: -1
 soundButtonHover
   rotate: false
-  xy: 825, 833
+  xy: 825, 835
   size: 87, 87
   orig: 87, 87
   offset: 0, 0
   index: -1
-circle
-  rotate: false
-  xy: 1, 110
-  size: 227, 231
-  orig: 227, 231
-  offset: 0, 0
-  index: -1
-corsiOff
-  rotate: false
-  xy: 230, 110
-  size: 227, 231
-  orig: 227, 231
-  offset: 0, 0
-  index: -1
-mainmenu
-  rotate: false
-  xy: 459, 138
-  size: 550, 203
-  orig: 550, 203
-  offset: 0, 0
-  index: -1
-blue
-  rotate: false
-  xy: 459, 1
-  size: 365, 135
-  orig: 365, 135
-  offset: 0, 0
-  index: -1
-musicButton
-  rotate: false
-  xy: 826, 61
-  size: 72, 75
-  orig: 72, 75
-  offset: 0, 0
-  index: -1
 symbright
   rotate: false
-  xy: 900, 62
+  xy: 914, 937
   size: 74, 74
   orig: 74, 74
   offset: 0, 0
   index: -1
+symbwrong
+  rotate: false
+  xy: 825, 759
+  size: 74, 74
+  orig: 74, 74
+  offset: 0, 0
+  index: -1
+musicButton
+  rotate: false
+  xy: 914, 860
+  size: 72, 75
+  orig: 72, 75
+  offset: 0, 0
+  index: -1
 musicButtonPressed
   rotate: false
-  xy: 1, 33
+  xy: 825, 682
   size: 72, 75
   orig: 72, 75
   offset: 0, 0
   index: -1
 soundButton
   rotate: false
-  xy: 75, 33
+  xy: 825, 605
   size: 72, 75
   orig: 72, 75
   offset: 0, 0
   index: -1
 soundButtonPressed
   rotate: false
-  xy: 149, 33
+  xy: 825, 528
   size: 72, 75
   orig: 72, 75
-  offset: 0, 0
-  index: -1
-symbwrong
-  rotate: false
-  xy: 223, 34
-  size: 74, 74
-  orig: 74, 74
   offset: 0, 0
   index: -1
 
@@ -99,74 +99,81 @@ nBack2.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
-leaderboard
-  rotate: false
-  xy: 1, 794
-  size: 796, 205
-  orig: 796, 205
-  offset: 0, 0
-  index: -1
 settings
   rotate: false
-  xy: 1, 589
+  xy: 1, 819
   size: 578, 203
   orig: 578, 203
   offset: 0, 0
   index: -1
+playGS
+  rotate: false
+  xy: 581, 862
+  size: 420, 160
+  orig: 420, 160
+  offset: 0, 0
+  index: -1
+tutorialGS
+  rotate: false
+  xy: 581, 700
+  size: 420, 160
+  orig: 420, 160
+  offset: 0, 0
+  index: -1
+mainmenu
+  rotate: false
+  xy: 1, 614
+  size: 550, 203
+  orig: 550, 203
+  offset: 0, 0
+  index: -1
 right
   rotate: false
-  xy: 581, 584
+  xy: 553, 490
   size: 377, 208
   orig: 377, 208
   offset: 0, 0
   index: -1
 nBackButton
   rotate: false
-  xy: 1, 384
+  xy: 1, 409
   size: 550, 203
   orig: 550, 203
   offset: 0, 0
   index: -1
 wrong
   rotate: false
-  xy: 553, 374
+  xy: 553, 280
   size: 377, 208
   orig: 377, 208
   offset: 0, 0
   index: -1
 play
   rotate: false
-  xy: 1, 178
+  xy: 1, 203
   size: 540, 204
   orig: 540, 204
   offset: 0, 0
   index: -1
-retry
+prev
   rotate: false
-  xy: 543, 169
-  size: 377, 203
-  orig: 377, 203
+  xy: 1, 1
+  size: 200, 200
+  orig: 200, 200
   offset: 0, 0
   index: -1
 backButton
   rotate: false
-  xy: 1, 1
+  xy: 203, 26
   size: 370, 175
   orig: 370, 175
   offset: 0, 0
   index: -1
-green
+circle
   rotate: false
-  xy: 373, 32
-  size: 365, 135
-  orig: 365, 135
-  offset: 0, 0
-  index: -1
-0
-  rotate: false
-  xy: 740, 12
-  size: 246, 155
-  orig: 246, 155
+  xy: 575, 47
+  size: 227, 231
+  orig: 227, 231
   offset: 0, 0
   index: -1
 
@@ -174,100 +181,100 @@ nBack3.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
+retry
+  rotate: false
+  xy: 1, 814
+  size: 377, 203
+  orig: 377, 203
+  offset: 0, 0
+  index: -1
 orange
   rotate: false
-  xy: 1, 882
+  xy: 380, 882
   size: 365, 135
   orig: 365, 135
   offset: 0, 0
   index: -1
+0
+  rotate: false
+  xy: 747, 862
+  size: 246, 155
+  orig: 246, 155
+  offset: 0, 0
+  index: -1
 red
   rotate: false
-  xy: 368, 882
+  xy: 380, 745
+  size: 365, 135
+  orig: 365, 135
+  offset: 0, 0
+  index: -1
+white
+  rotate: false
+  xy: 1, 677
   size: 365, 135
   orig: 365, 135
   offset: 0, 0
   index: -1
 0D
   rotate: false
-  xy: 735, 862
+  xy: 747, 705
   size: 246, 155
   orig: 246, 155
   offset: 0, 0
   index: -1
-white
-  rotate: false
-  xy: 1, 745
-  size: 365, 135
-  orig: 365, 135
-  offset: 0, 0
-  index: -1
 yellow
   rotate: false
-  xy: 368, 745
+  xy: 368, 608
   size: 365, 135
   orig: 365, 135
   offset: 0, 0
   index: -1
 2
   rotate: false
-  xy: 735, 705
+  xy: 735, 548
   size: 246, 155
   orig: 246, 155
   offset: 0, 0
   index: -1
-corsiOn
-  rotate: false
-  xy: 1, 472
-  size: 227, 231
-  orig: 227, 231
-  offset: 0, 0
-  index: -1
-diamond
-  rotate: false
-  xy: 1, 239
-  size: 227, 231
-  orig: 227, 231
-  offset: 0, 0
-  index: -1
-ltri
-  rotate: false
-  xy: 1, 6
-  size: 227, 231
-  orig: 227, 231
-  offset: 0, 0
-  index: -1
 2D
   rotate: false
-  xy: 230, 588
+  xy: 1, 520
   size: 246, 155
   orig: 246, 155
   offset: 0, 0
   index: -1
 3
   rotate: false
-  xy: 478, 588
+  xy: 249, 451
   size: 246, 155
   orig: 246, 155
   offset: 0, 0
   index: -1
 3D
   rotate: false
-  xy: 726, 548
+  xy: 1, 363
   size: 246, 155
   orig: 246, 155
   offset: 0, 0
   index: -1
+corsiOff
+  rotate: false
+  xy: 497, 375
+  size: 227, 231
+  orig: 227, 231
+  offset: 0, 0
+  index: -1
 4
   rotate: false
-  xy: 230, 431
+  xy: 249, 294
   size: 246, 155
   orig: 246, 155
   offset: 0, 0
   index: -1
 4D
   rotate: false
-  xy: 478, 431
+  xy: 1, 206
   size: 246, 155
   orig: 246, 155
   offset: 0, 0
@@ -279,37 +286,37 @@ ltri
   orig: 246, 155
   offset: 0, 0
   index: -1
-pentagon
-  rotate: false
-  xy: 230, 158
-  size: 227, 231
-  orig: 227, 231
-  offset: 0, 0
-  index: -1
 5D
   rotate: false
-  xy: 230, 1
+  xy: 726, 234
   size: 246, 155
   orig: 246, 155
+  offset: 0, 0
+  index: -1
+corsiOn
+  rotate: false
+  xy: 497, 142
+  size: 227, 231
+  orig: 227, 231
   offset: 0, 0
   index: -1
 6
   rotate: false
-  xy: 478, 274
+  xy: 249, 137
   size: 246, 155
   orig: 246, 155
   offset: 0, 0
   index: -1
-rtri
+6D
   rotate: false
-  xy: 478, 41
-  size: 227, 231
-  orig: 227, 231
+  xy: 1, 49
+  size: 246, 155
+  orig: 246, 155
   offset: 0, 0
   index: -1
-square
+diamond
   rotate: false
-  xy: 707, 41
+  xy: 726, 1
   size: 227, 231
   orig: 227, 231
   offset: 0, 0
@@ -319,65 +326,86 @@ nBack4.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
-6D
+ltri
   rotate: false
-  xy: 1, 315
-  size: 246, 155
-  orig: 246, 155
+  xy: 1, 472
+  size: 227, 231
+  orig: 227, 231
+  offset: 0, 0
+  index: -1
+pentagon
+  rotate: false
+  xy: 1, 239
+  size: 227, 231
+  orig: 227, 231
+  offset: 0, 0
+  index: -1
+rtri
+  rotate: false
+  xy: 230, 472
+  size: 227, 231
+  orig: 227, 231
+  offset: 0, 0
+  index: -1
+square
+  rotate: false
+  xy: 1, 6
+  size: 227, 231
+  orig: 227, 231
   offset: 0, 0
   index: -1
 7
   rotate: false
-  xy: 1, 158
+  xy: 459, 548
   size: 246, 155
   orig: 246, 155
   offset: 0, 0
   index: -1
 7D
   rotate: false
-  xy: 249, 315
+  xy: 707, 548
   size: 246, 155
   orig: 246, 155
   offset: 0, 0
   index: -1
 8
   rotate: false
-  xy: 1, 1
+  xy: 230, 315
   size: 246, 155
   orig: 246, 155
   offset: 0, 0
   index: -1
 8D
   rotate: false
-  xy: 249, 158
+  xy: 230, 158
   size: 246, 155
   orig: 246, 155
   offset: 0, 0
   index: -1
 9
   rotate: false
-  xy: 497, 315
+  xy: 230, 1
   size: 246, 155
   orig: 246, 155
   offset: 0, 0
   index: -1
 9D
   rotate: false
-  xy: 249, 1
+  xy: 478, 391
   size: 246, 155
   orig: 246, 155
   offset: 0, 0
   index: -1
 one
   rotate: false
-  xy: 497, 158
+  xy: 478, 234
   size: 246, 155
   orig: 246, 155
   offset: 0, 0
   index: -1
 oneD
   rotate: false
-  xy: 745, 315
+  xy: 478, 77
   size: 246, 155
   orig: 246, 155
   offset: 0, 0
