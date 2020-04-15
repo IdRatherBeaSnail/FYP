@@ -40,7 +40,7 @@ public class RunningSpanScreen implements Screen {
     private Skin skin;
     private TextureAtlas buttonAtlas;
     private TextButton one,two,three,four,five,six,seven,eight,nine,zero,retry,menu,back;
-    private String chain;
+    private String chain,finalAnswer;
     private Label label;
     private int buttonNum,currentHighScore;
     private Preferences score;
@@ -51,7 +51,7 @@ public class RunningSpanScreen implements Screen {
 
         display = new ArrayList<>();
         answer = new ArrayList<>();
-
+        finalAnswer ="";
         display.add(randomInt());
         counter = 0;
         deltaTime = 0;
@@ -309,7 +309,7 @@ public class RunningSpanScreen implements Screen {
         retryStyle.font = font;
 
         retry = new TextButton("",retryStyle);
-        retry.setPosition(Gdx.graphics.getWidth()/2 -150 ,Gdx.graphics.getHeight()/2 - 250.0f);
+        retry.setPosition(Gdx.graphics.getWidth()/2 -150 ,Gdx.graphics.getHeight()/2 - 350.0f);
 
         retry.addListener(new ClickListener() {
             @Override
@@ -335,7 +335,7 @@ public class RunningSpanScreen implements Screen {
         menuStyle.font = font;
 
         menu = new TextButton("",menuStyle);
-        menu.setPosition(Gdx.graphics.getWidth()/2 -250,Gdx.graphics.getHeight()/2 - 450.0f);
+        menu.setPosition(Gdx.graphics.getWidth()/2 -250,Gdx.graphics.getHeight()/2 - 550.0f);
 
         menu.addListener(new ClickListener() {
             @Override
@@ -448,18 +448,14 @@ public class RunningSpanScreen implements Screen {
 
 
             } else if (!display.equals(answer) && !answer.isEmpty() && display.size() == answer.size()) {
-                counter++;
-                player.loseLife(3);
-                chain = "";
-                timer = 2;
+                finalAnswer = "";
                 for (int i = 0; i < counter; i++) {
-                    display.add(i, randomInt());
-                    String concat = display.get(i).toString();
-                    chain += concat;
-                    label.setText(chain);
-                    label.setVisible(true);
-                }
+                    String concat = answer.get(i).toString();
+                    finalAnswer += concat;
 
+
+                }
+                player.loseLife(3);
             }
 
 
@@ -494,6 +490,8 @@ public class RunningSpanScreen implements Screen {
                 stage.getBatch().draw(dheart3, 725, 1800);
                 stage.getBatch().draw(over, 0, 0);
                 font.draw(stage.getBatch(), Integer.toString(player.getScore()), Gdx.graphics.getWidth() / 2 + 90, Gdx.graphics.getHeight() / 2 + 215);
+                font.draw(stage.getBatch(), "Sequence = " + chain, Gdx.graphics.getWidth() / 2 - 280, Gdx.graphics.getHeight() / 2 + 115);
+                font.draw(stage.getBatch(), "Your Answer = " + finalAnswer, Gdx.graphics.getWidth() / 2 - 280, Gdx.graphics.getHeight() / 2 + 15);
                 stage.getBatch().end();
                 retry.setVisible(true);
                 menu.setVisible(true);

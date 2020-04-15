@@ -122,6 +122,8 @@ public class SymbolScreen implements Screen {
             public void clicked (InputEvent event, float x, float y){
                 if(!one.isDisabled()){
                     buttonNum = 0;
+                    Collections.shuffle(xAxis);
+                    Collections.shuffle(yAxis);
 
 
                 }
@@ -139,6 +141,8 @@ public class SymbolScreen implements Screen {
             public void clicked (InputEvent event, float x, float y){
                 if(!two.isDisabled()){
                     buttonNum = 1;
+                    Collections.shuffle(xAxis);
+                    Collections.shuffle(yAxis);
 
 
                 }
@@ -156,7 +160,8 @@ public class SymbolScreen implements Screen {
             public void clicked (InputEvent event, float x, float y){
                 if(!three.isDisabled()){
                     buttonNum = 2;
-
+                    Collections.shuffle(xAxis);
+                    Collections.shuffle(yAxis);
 
                 }
             }
@@ -173,7 +178,8 @@ public class SymbolScreen implements Screen {
             public void clicked (InputEvent event, float x, float y){
                 if(!four.isDisabled()){
                     buttonNum = 3;
-
+                    Collections.shuffle(xAxis);
+                    Collections.shuffle(yAxis);
 
                 }
             }
@@ -190,7 +196,8 @@ public class SymbolScreen implements Screen {
             public void clicked (InputEvent event, float x, float y){
                 if(!five.isDisabled()){
                     buttonNum = 4;
-
+                    Collections.shuffle(xAxis);
+                    Collections.shuffle(yAxis);
 
                 }
             }
@@ -207,7 +214,8 @@ public class SymbolScreen implements Screen {
             public void clicked (InputEvent event, float x, float y){
                 if(!six.isDisabled()){
                     buttonNum = 5;
-
+                    Collections.shuffle(xAxis);
+                    Collections.shuffle(yAxis);
 
                 }
             }
@@ -370,20 +378,48 @@ public class SymbolScreen implements Screen {
                     buttonNum = 7;
                     Collections.shuffle(display);
                     tmp.setStyle(buttonArray.get(display.get(0)).getStyle());
+                    Collections.shuffle(xAxis);
+                    Collections.shuffle(yAxis);
+                    one.setVisible(false);
+                    two.setVisible(false);
+                    three.setVisible(false);
+                    four.setVisible(false);
+                    five.setVisible(false);
+                    six.setVisible(false);
+                    one.setPosition(Gdx.graphics.getWidth()/2  + xAxis.get(0),Gdx.graphics.getHeight()/2 - yAxis.get(0));
+                    two.setPosition(Gdx.graphics.getWidth()/2  + xAxis.get(1),Gdx.graphics.getHeight()/2 - yAxis.get(1));
+                    three.setPosition(Gdx.graphics.getWidth()/2  + xAxis.get(2),Gdx.graphics.getHeight()/2 - yAxis.get(0));
+                    four.setPosition(Gdx.graphics.getWidth()/2  + xAxis.get(0),Gdx.graphics.getHeight()/2 - yAxis.get(1));
+                    five.setPosition(Gdx.graphics.getWidth()/2  + xAxis.get(1),Gdx.graphics.getHeight()/2 - yAxis.get(0));
+                    six.setPosition(Gdx.graphics.getWidth()/2  + xAxis.get(2),Gdx.graphics.getHeight()/2 - yAxis.get(1));
                 } else if (display.get(0) != buttonNum && buttonNum != 7) {
                     // timer for rounds counter;
                     if (player.getLife() == 3) {
-                        roundOne = 1.000f;
+                        roundOne = timer2+1.000f;
                     } else if (player.getLife() == 2) {
-                        roundTwo = 1.000f;
+                        roundTwo = timer2+1.000f;
                     } else if (player.getLife() == 1) {
-                        roundThree = 1.000f;
+                        roundThree = timer2+1.000f;
                     }
                     player.loseLife(1);
                     timer = 2;
                     buttonNum = 7;
                     Collections.shuffle(display);
                     tmp.setStyle(buttonArray.get(display.get(0)).getStyle());
+                    Collections.shuffle(xAxis);
+                    Collections.shuffle(yAxis);
+                    one.setVisible(false);
+                    two.setVisible(false);
+                    three.setVisible(false);
+                    four.setVisible(false);
+                    five.setVisible(false);
+                    six.setVisible(false);
+                    one.setPosition(Gdx.graphics.getWidth()/2  + xAxis.get(0),Gdx.graphics.getHeight()/2 - yAxis.get(0));
+                    two.setPosition(Gdx.graphics.getWidth()/2  + xAxis.get(1),Gdx.graphics.getHeight()/2 - yAxis.get(1));
+                    three.setPosition(Gdx.graphics.getWidth()/2  + xAxis.get(2),Gdx.graphics.getHeight()/2 - yAxis.get(0));
+                    four.setPosition(Gdx.graphics.getWidth()/2  + xAxis.get(0),Gdx.graphics.getHeight()/2 - yAxis.get(1));
+                    five.setPosition(Gdx.graphics.getWidth()/2  + xAxis.get(1),Gdx.graphics.getHeight()/2 - yAxis.get(0));
+                    six.setPosition(Gdx.graphics.getWidth()/2  + xAxis.get(2),Gdx.graphics.getHeight()/2 - yAxis.get(1));
                 }
 
             }

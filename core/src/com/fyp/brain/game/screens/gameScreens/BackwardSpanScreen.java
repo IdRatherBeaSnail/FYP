@@ -39,7 +39,7 @@ public class BackwardSpanScreen implements Screen {
     private Skin skin;
     private TextureAtlas buttonAtlas;
     private TextButton one,two,three,four,five,six,seven,eight,nine,zero,retry,menu,back;
-    private String chain;
+    private String chain,finalAnswer;
     private Label label;
     private int buttonNum,currentHighScore;
     private Preferences score;
@@ -51,6 +51,7 @@ public class BackwardSpanScreen implements Screen {
         display = new ArrayList<>();
         answer = new ArrayList<>();
         display.add(randomInt());
+        finalAnswer = "";
         counter = 0;
         deltaTime = 0;
         timer = 2;
@@ -314,7 +315,7 @@ public class BackwardSpanScreen implements Screen {
                     counter = 0;
                     answer.clear();
                     display.clear();
-                    game.setScreen(new RunningSpanScreen(game));
+                    game.setScreen(new BackwardSpanScreen(game));
 
                 }
             }
@@ -424,13 +425,14 @@ public class BackwardSpanScreen implements Screen {
 
             if (display.size() == answer.size()) {
                 Collections.reverse(display);
-                if (display.equals(answer) && !answer.isEmpty()) {
-                    counter++;
+                if (display.equals(answer) && !answer.isEmpty() && display.size() == answer.size()) {
                     player.setScore(1);
-                    chain = "";
                     display.clear();
                     answer.clear();
                     timer = 2;
+                    counter++;
+                    if(player.getLife()!=0){
+                        chain = "";
                     for (int i = 0; i < counter; i++) {
                         display.add(randomInt());
                         String concat = display.get(i).toString();
@@ -438,20 +440,18 @@ public class BackwardSpanScreen implements Screen {
                         label.setText(chain);
                         label.setVisible(true);
 
+                        }
                     }
 
-                } else if (!display.equals(answer) && !answer.isEmpty()) {
-                    counter++;
-                    player.loseLife(3);
-                    chain = "";
-                    timer = 2;
+                } else if (!display.equals(answer) && !answer.isEmpty() && display.size() == answer.size()) {
+                    finalAnswer = "";
                     for (int i = 0; i < counter; i++) {
-                        display.add(i, randomInt());
-                        String concat = display.get(i).toString();
-                        chain += concat;
-                        label.setText(chain);
-                        label.setVisible(true);
+                        String concat = answer.get(i).toString();
+                        finalAnswer += concat;
+
+
                     }
+                    player.loseLife(3);
                 }
             }
 
@@ -485,7 +485,10 @@ public class BackwardSpanScreen implements Screen {
                 stage.getBatch().draw(dheart2, 825, 1800);
                 stage.getBatch().draw(dheart3, 725, 1800);
                 stage.getBatch().draw(over, 0, 0);
+                StringBuilder sb = new StringBuilder(chain);
                 font.draw(stage.getBatch(), Integer.toString(player.getScore()), Gdx.graphics.getWidth() / 2 + 90, Gdx.graphics.getHeight() / 2 + 215);
+                font.draw(stage.getBatch(), "Sequence = " + sb.reverse(), Gdx.graphics.getWidth() / 2 - 280, Gdx.graphics.getHeight() / 2 + 115);
+                font.draw(stage.getBatch(), "Your Answer = " + finalAnswer, Gdx.graphics.getWidth() / 2 - 280, Gdx.graphics.getHeight() / 2 + 15);
                 stage.getBatch().end();
                 retry.setVisible(true);
                 menu.setVisible(true);
